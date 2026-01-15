@@ -17,6 +17,7 @@ public class SeatReservation {
     private String firstName;
     private String lastName;
     private int numberOfBags;
+    private boolean flyingWithInfant;
 
     public void setFirstName(String firstName) {
         if (firstName == null || firstName.length() < 2 || firstName.length() > 15) {
@@ -38,6 +39,20 @@ public int setNumberOfBags(int numberOfBags) {
 }
     public int getNumberOfBags() {
         return numberOfBags;
+    }
+
+    // getter
+    public boolean isFlyingWithInfant() {
+        return flyingWithInfant;
+    }
+
+    // setter-ish methods
+    public void makeFlyingWithInfant() {
+        this.flyingWithInfant = true;
+    }
+
+    public void makeNotFlyingWithInfant() {
+        this.flyingWithInfant = false;
     }
 
     // setter for flightDesignator and fulfills module1 part 2 assignment.
