@@ -1,3 +1,14 @@
+/*
+* Project: module2
+* Author: Christopher Boartfield
+* Email: clb0214@auburn.edu
+* Date: 1/18/2026
+* Description: Flight Designation App
+ */
+
+package com.example.module2;
+import java.time.LocalDate;
+
 public class SeatReservation {
 
     /* Private instance variables*/
@@ -5,8 +16,31 @@ public class SeatReservation {
     private LocalDate flightDate;
     private String firstName;
     private String lastName;
+    private int numberOfBags;
 
-    // setter for flightDesignator and fullfills module1 part 2 assignment.
+    public void setFirstName(String firstName) {
+        if (firstName == null || firstName.length() < 2 || firstName.length() > 15) {
+            throw new IllegalArgumentException("First name must be between 2 and 15 characters.");
+        }
+        this.firstName = firstName;
+    }
+    public void setlastName(String lastName) {
+        if (lastName == null || lastName.length() < 2 || lastName.length() > 15) {
+            throw new IllegalArgumentException("Last name must be between 2 and 15 characters.");
+        }
+        this.lastName = lastName;
+    }
+public int setNumberOfBags(int numberOfBags) {
+        if (numberOfBags < 0 || numberOfBags > 100) {
+            throw new IllegalArgumentException("Number of bags must be between 0 and 100.");
+        }
+        return this.numberOfBags = numberOfBags;
+}
+    public int getNumberOfBags() {
+        return numberOfBags;
+    }
+
+    // setter for flightDesignator and fulfills module1 part 2 assignment.
     public void setFlightDesignator(String flightDesignator) {
         if (flightDesignator == null ||
                 flightDesignator.length() < 4 ||
