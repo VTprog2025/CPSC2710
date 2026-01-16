@@ -43,6 +43,7 @@ public class SeatReservation {
             throw new IllegalArgumentException(
                     "Last name must be between 1 and 15 characters");
         }
+        return lastName;
     }
 
     public void setFlightDesignator(String flightDesignator) {
