@@ -11,18 +11,18 @@ import java.time.LocalDate;
 
 public class SeatReservation {
 
-    /* Private instance variables*/
+    /* Private instance variables */
     private String flightDesignator;
     private LocalDate flightDate;
     private String firstName;
     private String lastName;
+    private int numberOfBags;
+    private boolean flyingWithInfant;
+    private boolean flyingWithTravelInsurance;
 
-
-    public String setfirstName() {
-        return firstName;
-    }
-    public String setlastName() {
-        return lastName;
+    /* First Name */
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getFirstName() {
@@ -35,6 +35,12 @@ public class SeatReservation {
         }
         return firstName;
     }
+
+    /* Last Name */
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getLastName() {
         if (lastName == null) {
             throw new IllegalArgumentException("Last name cannot be null");
@@ -46,6 +52,7 @@ public class SeatReservation {
         return lastName;
     }
 
+    /* Flight Designator */
     public void setFlightDesignator(String flightDesignator) {
         if (flightDesignator == null ||
                 flightDesignator.length() < 4 ||
@@ -57,10 +64,51 @@ public class SeatReservation {
         this.flightDesignator = flightDesignator;
     }
 
+    public String getFlightDesignator() {
+        return flightDesignator;
+    }
 
+    /* Number of Bags */
+    public void setNumberOfBags(int numberOfBags) {
+        this.numberOfBags = numberOfBags;
+    }
 
-    /*
-     * Module1 assignment.
-     */
+    public int getNumberOfBags() {
+        return numberOfBags;
+    }
+
+    /* Flying With Infant */
+    public boolean isFlyingWithInfant() {
+        return flyingWithInfant;
+    }
+
+    public void makeFlyingWithInfant() {
+        flyingWithInfant = true;
+    }
+
+    public void makeNotFlyingWithInfant() {
+        flyingWithInfant = false;
+    }
+
+    /* Flying With Travel Insurance */
+    public boolean hasTravelInsurance() {
+        return flyingWithTravelInsurance;
+    }
+
+    public void makeFlyingWithTravelInsurance() {
+        flyingWithTravelInsurance = true;
+    }
+
+    public void makeNotFlyingWithTravelInsurance() {
+        flyingWithTravelInsurance = false;
+    }
+
+    /* Flight Date */
+    public void setFlightDate(LocalDate flightDate) {
+        this.flightDate = flightDate;
+    }
+
+    public LocalDate getFlightDate() {
+        return flightDate;
+    }
 }
-
