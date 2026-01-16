@@ -111,4 +111,17 @@ public class SeatReservation {
     public LocalDate getFlightDate() {
         return flightDate;
     }
+    @Override
+    public String toString() {
+        return "SeatReservation {" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", flightDesignator='" + flightDesignator + '\'' +
+                ", flightDate=" + flightDate +
+                ", numberOfBags=" + numberOfBags +
+                ", flyingWithInfant=" + flyingWithInfant +
+                ", flyingWithTravelInsurance=" + flyingWithTravelInsurance +
+                '}';
+    }
+
 }
