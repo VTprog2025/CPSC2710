@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class SeatReservation {
 
     private String flightDesignator;
@@ -17,6 +19,9 @@ public class SeatReservation {
     }
 
     public void setFlightDesignator(String fd) {
+         if (fd == null){
+        throw new IllegalArgumentException("flight designator cannot be null");
+        }
         this.flightDesignator = fd;
     }
 
