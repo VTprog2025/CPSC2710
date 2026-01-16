@@ -17,7 +17,34 @@ public class SeatReservation {
     private String firstName;
     private String lastName;
 
-    // setter for flightDesignator and fullfills module1 part 2 assignment.
+
+    public String setfirstName() {
+        return firstName;
+    }
+    public String setlastName() {
+        return lastName;
+    }
+
+    public String getFirstName() {
+        if (firstName == null) {
+            throw new IllegalArgumentException("First name cannot be null");
+        }
+        if (firstName.length() < 1 || firstName.length() > 15) {
+            throw new IllegalArgumentException(
+                    "First name must be between 1 and 15 characters");
+        }
+        return firstName;
+    }
+    public String getLastName() {
+        if (lastName == null) {
+            throw new IllegalArgumentException("Last name cannot be null");
+        }
+        if (lastName.length() < 1 || lastName.length() > 15) {
+            throw new IllegalArgumentException(
+                    "Last name must be between 1 and 15 characters");
+        }
+    }
+
     public void setFlightDesignator(String flightDesignator) {
         if (flightDesignator == null ||
                 flightDesignator.length() < 4 ||
@@ -28,6 +55,8 @@ public class SeatReservation {
         }
         this.flightDesignator = flightDesignator;
     }
+
+
 
     /*
      * Module1 assignment.
