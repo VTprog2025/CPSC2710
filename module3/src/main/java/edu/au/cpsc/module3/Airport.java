@@ -12,7 +12,7 @@ import javafx.scene.control.Label;
 
 public class Airport {
 
-    int elevationFt;
+    Integer elevationFt;
     String continent;
     String country;
     String region;
@@ -21,6 +21,65 @@ public class Airport {
     String int localCode;
     double latitude;
     double longitude;
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public Integer getElevationFt() {
+        return elevationFt;
+    }
+    public void setElevationFt(Integer elevationFt) {
+        this.elevationFt = elevationFt;
+    }
+    public String getContinent() {
+        return continent;
+    }
+    public void setContinent(String continent) {
+        this.continent = continent;
+    }
+    public String getCountry() {
+        return country;
+    }
+    public void setCountry(String country) {
+        this.country = country;
+    }
+    public String getMunicipality() {
+        return municipality;
+    }
+    public void setMunicipality(String municipality) {
+        this.municipality = municipality;
+    }
+    public int getGpsCode() {
+        return gpsCode;
+    }
+    public void setGpsCode(int gpsCode) {
+        this.gpsCode = gpsCode;
+    }
+    public int getLocalCode() {
+        return localCode;
+    }
+    public void setLocalCode(int localCode) {
+        this.localCode = localCode;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+    public double getLongitude() {
+        return longitude;
+    }
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
 
 
     @FXML
