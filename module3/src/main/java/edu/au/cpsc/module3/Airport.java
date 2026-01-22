@@ -18,7 +18,7 @@ public class Airport {
     String region;
     String municipality;
     int gpsCode;
-    String int localCode;
+    int localCode;
     double latitude;
     double longitude;
 
