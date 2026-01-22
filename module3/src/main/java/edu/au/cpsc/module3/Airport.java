@@ -11,6 +11,18 @@ import javafx.scene.control.Label;
  */
 
 public class Airport {
+
+    int elevationFt;
+    String continent;
+    String country;
+    String region;
+    String municipality;
+    int gpsCode;
+    String int localCode;
+    double latitude;
+    double longitude;
+
+
     @FXML
     private Label welcomeText;
 
