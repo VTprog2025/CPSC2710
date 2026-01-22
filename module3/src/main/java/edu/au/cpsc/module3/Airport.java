@@ -43,33 +43,79 @@ public class Airport {
         this.longitude = longitude;
     }
 
-    // Getters and setters (keeping your structure)
-    public Integer getElevationFt() { return elevationFt; }
-    public void setElevationFt(Integer elevationFt) { this.elevationFt = elevationFt; }
 
-    public String getContinent() { return continent; }
-    public void setContinent(String continent) { this.continent = continent; }
+    // Getters and setters
+    public Integer getElevationFt() {
+        return elevationFt;
+    }
 
-    public String getCountry() { return country; }
-    public void setCountry(String country) { this.country = country; }
+    public void setElevationFt(Integer elevationFt) {
+        this.elevationFt = elevationFt;
+    }
 
-    public String getRegion() { return region; }
-    public void setRegion(String region) { this.region = region; }
+    public String getContinent() {
+        return continent;
+    }
 
-    public String getMunicipality() { return municipality; }
-    public void setMunicipality(String municipality) { this.municipality = municipality; }
+    public void setContinent(String continent) {
+        this.continent = continent;
+    }
 
-    public Integer getGpsCode() { return gpsCode; }
-    public void setGpsCode(Integer gpsCode) { this.gpsCode = gpsCode; }
+    public String getCountry() {
+        return country;
+    }
 
-    public Integer getLocalCode() { return localCode; }
-    public void setLocalCode(Integer localCode) { this.localCode = localCode; }
+    public void setCountry(String country) {
+        this.country = country;
+    }
 
-    public Double getLatitude() { return latitude; }
-    public void setLatitude(Double latitude) { this.latitude = latitude; }
+    public String getRegion() {
+        return region;
+    }
 
-    public Double getLongitude() { return longitude; }
-    public void setLongitude(Double longitude) { this.longitude = longitude; }
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public String getMunicipality() {
+        return municipality;
+    }
+
+    public void setMunicipality(String municipality) {
+        this.municipality = municipality;
+    }
+
+    public Integer getGpsCode() {
+        return gpsCode;
+    }
+
+    public void setGpsCode(Integer gpsCode) {
+        this.gpsCode = gpsCode;
+    }
+
+    public Integer getLocalCode() {
+        return localCode;
+    }
+
+    public void setLocalCode(Integer localCode) {
+        this.localCode = localCode;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
 
     // Static method to read all airports from CSV in resources
     public static List<Airport> readAll() throws IOException {
