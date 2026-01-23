@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="edu.au.cpsc.module3.AirportController">
+
+    <top>
+        <Label text="Christopher Boartfield's Airport Mapview App"
+               BorderPane.alignment="CENTER"
+               style="-fx-font-size: 20px; -fx-padding: 10;" />
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.35">
+
+            <!-- DATA SECTION -->
+            <VBox spacing="10" padding="10">
+                <Label text="Data" style="-fx-font-size: 16px;" />
+
+                <!-- Search Fields -->
+                <GridPane hgap="10" vgap="8">
+                    <Label text="Ident:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="identField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="IATA Code:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="iataField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Local Code:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="localCodeField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                </GridPane>
+
+                <Button text="Search" onAction="#onSearch" />
+
+                <!-- Display Fields -->
+                <GridPane hgap="10" vgap="8">
+                    <Label text="Type:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="typeField" GridPane.rowIndex="0" GridPane.columnIndex="1" editable="false"/>
+
+                    <Label text="Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="nameField" GridPane.rowIndex="1" GridPane.columnIndex="1" editable="false"/>
+
+                    <Label text="Elevation:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="elevationField" GridPane.rowIndex="2" GridPane.columnIndex="1" editable="false"/>
+
+                    <Label text="Country:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <TextField fx:id="countryField" GridPane.rowIndex="3" GridPane.columnIndex="1" editable="false"/>
+
+                    <Label text="Region:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <TextField fx:id="regionField" GridPane.rowIndex="4" GridPane.columnIndex="1" editable="false"/>
+
+                    <Label text="Municipality:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                    <TextField fx:id="municipalityField" GridPane.rowIndex="5" GridPane.columnIndex="1" editable="false"/>
+                </GridPane>
+            </VBox>
+
+            <!-- MAP SECTION -->
+            <VBox spacing="10" padding="10">
+                <Label text="Map" style="-fx-font-size: 16px;" />
+                <Pane fx:id="mapPane" prefHeight="400" prefWidth="400"
+                      style="-fx-border-color: gray;" />
+            </VBox>
+
+        </SplitPane>
+    </center>
+</BorderPane>
