@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.au.cpsc.module3.AirportApplication">
+
+    <top>
+        <Label text="Christopher Boartfield's Airport Mapview App" style="-fx-font-size: 20px;" BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <VBox spacing="10" padding="10">
+            <Label text="Data"/>
+
+            <GridPane hgap="10" vgap="5">
+                <Label text="Ident:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="identField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="IATA Code:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="iataField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Local Code:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="localCodeField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <Button text="Search" onAction="#onSearch"/>
+        </VBox>
+    </center>
+</BorderPane>
