@@ -74,7 +74,7 @@
                 </TitledPane>
 
                 <!-- Search Button -->
-                <Button text="Search" fx:id="searchButton"/>
+                <Button text="Search" fx:id="searchButton" onAction="#onHelloButtonClick"/>
             </children>
         </VBox>
     </center>

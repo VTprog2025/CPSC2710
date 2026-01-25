@@ -1,4 +1,4 @@
-package edu.au.cpsc.module3;
+package edu.au.cpsc.module3_1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -160,4 +160,3 @@ public class Airport {
         return airports;
     }
 }
-
