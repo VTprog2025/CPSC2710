@@ -17,7 +17,7 @@ public class AirportApplication extends Application {
 
         Scene scene = new Scene(fxmlLoader.load(), 900, 600);
 
-        stage.setTitle("Christopher Boartfields Airport Mapview App");
+        stage.setTitle("Christopher Boartfield's Airport Mapview App");
         stage.setScene(scene);
         stage.show();
     }

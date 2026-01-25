@@ -11,20 +11,20 @@ import java.util.List;
 
 public class HelloController {
 
-    // Search fields (editable)
+    // Editable search fields
     @FXML private TextField gpsCodeField;    // mapped from gpsCode
     @FXML private TextField continentField;  // mapped from continent
     @FXML private TextField localCodeField;  // mapped from localCode
 
     // Read-only fields
-    @FXML private TextField typeField;        // no field in Airport, can leave as "N/A"
-    @FXML private TextField nameField;        // mapped from municipality
-    @FXML private TextField elevationField;   // mapped from elevationFt
-    @FXML private TextField countryField;     // mapped from country
-    @FXML private TextField regionField;      // mapped from region
+    @FXML private TextField typeField;         // not in Airport, use "N/A"
+    @FXML private TextField nameField;         // mapped from municipality
+    @FXML private TextField elevationField;    // mapped from elevationFt
+    @FXML private TextField countryField;      // mapped from country
+    @FXML private TextField regionField;       // mapped from region
     @FXML private TextField municipalityField; // mapped from municipality
 
-    // WebView for the map
+    // Map view
     @FXML private WebView mapView;
 
     // Search button
@@ -32,15 +32,14 @@ public class HelloController {
 
     private List<Airport> airports;
 
-    public HelloController(TextField gpsCodeField, TextField continentField) {
-        this.gpsCodeField = gpsCodeField;
-        this.continentField = continentField;
-    }
+    // No-arg constructor (FXML requires this)
+    public HelloController() { }
 
     @FXML
     public void initialize() {
+        // Load CSV once at startup
         try {
-            airports = Airport.readAll(); // Load CSV once at startup
+            airports = Airport.readAll();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -59,11 +58,11 @@ public class HelloController {
 
         Airport found = null;
 
-        // Search based on first non-empty field
         String gps = gpsCodeField.getText().trim();
         String continent = continentField.getText().trim();
         String local = localCodeField.getText().trim();
 
+        // Search based on first non-empty field
         for (Airport airport : airports) {
             if (!gps.isEmpty() && airport.getGpsCode() != null && gps.equals(airport.getGpsCode().toString())) {
                 found = airport;
@@ -84,7 +83,7 @@ public class HelloController {
     }
 
     private void updateFields(Airport airport) {
-        typeField.setText("N/A");  // no type in Airport class
+        typeField.setText("N/A");  // No type in Airport class
         nameField.setText(airport.getMunicipality());
         elevationField.setText(airport.getElevationFt() != null ? airport.getElevationFt().toString() : "");
         countryField.setText(airport.getCountry());
@@ -96,7 +95,7 @@ public class HelloController {
         if (airport.getLatitude() == null || airport.getLongitude() == null) return;
 
         WebEngine engine = mapView.getEngine();
-        // Note: longitude comes first in CSV, but Windy expects latitude,longitude
+        // Windy expects latitude,longitude
         engine.load("https://www.windy.com/?" + airport.getLatitude() + "," + airport.getLongitude() + ",12");
     }
 }
