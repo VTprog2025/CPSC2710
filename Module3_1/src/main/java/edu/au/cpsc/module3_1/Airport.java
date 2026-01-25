@@ -122,13 +122,11 @@ public class Airport {
         List<Airport> airports = new ArrayList<>();
 
         // Load CSV from resources folder
-        InputStream is = Airport.class
-                .getClassLoader()
-                .getResourceAsStream("airports.csv"); // make sure this file is in src/main/resources
-
+        InputStream is = Airport.class.getClassLoader().getResourceAsStream("airport-codes.csv");
         if (is == null) {
             throw new IOException("Could not find resource: airport-codes.csv");
         }
+
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
             String line;
