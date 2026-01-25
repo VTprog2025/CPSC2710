@@ -127,7 +127,7 @@ public class Airport {
                 .getResourceAsStream("airports.csv"); // make sure this file is in src/main/resources
 
         if (is == null) {
-            throw new IOException("Could not find resource: airports.csv");
+            throw new IOException("Could not find resource: airport-codes.csv");
         }
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
