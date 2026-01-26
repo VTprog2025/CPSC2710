@@ -11,81 +11,76 @@ import java.util.List;
 
 public class HelloController {
 
-    // Editable search fields
-    @FXML private TextField gpsCodeField;    // mapped from gpsCode
-    @FXML private TextField continentField;  // mapped from continent
-    @FXML private TextField localCodeField;  // mapped from localCode
+    // Search fields (MATCH FXML)
+    @FXML private TextField identField;
+    @FXML private TextField iataField;
+    @FXML private TextField localCodeField;
 
-    // Read-only fields
-    @FXML private TextField typeField;         // not in Airport, use "N/A"
-    @FXML private TextField nameField;         // mapped from municipality
-    @FXML private TextField elevationField;    // mapped from elevationFt
-    @FXML private TextField countryField;      // mapped from country
-    @FXML private TextField regionField;       // mapped from region
-    @FXML private TextField municipalityField; // mapped from municipality
+    // Detail fields
+    @FXML private TextField gpsCodeField;
+    @FXML private TextField nameField;
+    @FXML private TextField elevationField;
+    @FXML private TextField countryField;
+    @FXML private TextField regionField;
+    @FXML private TextField municipalityField;
 
-    // Map view
+    // Map + button
     @FXML private WebView mapView;
-
-    // Search button
     @FXML private Button searchButton;
 
     private List<Airport> airports;
 
-    // No-arg constructor (FXML requires this)
     public HelloController() { }
 
     @FXML
     public void initialize() {
-        // Load CSV once at startup
+
         try {
             airports = Airport.readAll();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        // Trigger search when Enter is pressed in any search field
-        gpsCodeField.setOnAction(e -> searchAirport());
-        continentField.setOnAction(e -> searchAirport());
+        identField.setOnAction(e -> searchAirport());
+        iataField.setOnAction(e -> searchAirport());
         localCodeField.setOnAction(e -> searchAirport());
-
-        // Trigger search when the button is clicked
         searchButton.setOnAction(e -> searchAirport());
     }
 
     private void searchAirport() {
         if (airports == null || airports.isEmpty()) return;
 
-        Airport found = null;
-
-        String gps = gpsCodeField.getText().trim();
-        String continent = continentField.getText().trim();
+        String ident = identField.getText().trim();
         String local = localCodeField.getText().trim();
 
-        // Search based on first non-empty field
         for (Airport airport : airports) {
-            if (!gps.isEmpty() && airport.getGpsCode() != null && gps.equals(airport.getGpsCode().toString())) {
-                found = airport;
-                break;
-            } else if (!continent.isEmpty() && continent.equalsIgnoreCase(airport.getContinent())) {
-                found = airport;
-                break;
-            } else if (!local.isEmpty() && airport.getLocalCode() != null && local.equals(airport.getLocalCode().toString())) {
-                found = airport;
-                break;
-            }
-        }
 
-        if (found != null) {
-            updateFields(found);
-            updateMap(found);
+            if (!ident.isEmpty()
+                    && airport.getGpsCode() != null
+                    && ident.equals(airport.getGpsCode().toString())) {
+
+                updateFields(airport);
+                updateMap(airport);
+                return;
+            }
+
+            if (!local.isEmpty()
+                    && airport.getLocalCode() != null
+                    && local.equals(airport.getLocalCode().toString())) {
+
+                updateFields(airport);
+                updateMap(airport);
+                return;
+            }
         }
     }
 
     private void updateFields(Airport airport) {
-        typeField.setText("N/A");  // No type in Airport class
+        gpsCodeField.setText(airport.getGpsCode() != null ? airport.getGpsCode().toString() : "");
         nameField.setText(airport.getMunicipality());
-        elevationField.setText(airport.getElevationFt() != null ? airport.getElevationFt().toString() : "");
+        elevationField.setText(
+                airport.getElevationFt() != null ? airport.getElevationFt().toString() : ""
+        );
         countryField.setText(airport.getCountry());
         regionField.setText(airport.getRegion());
         municipalityField.setText(airport.getMunicipality());
@@ -95,7 +90,12 @@ public class HelloController {
         if (airport.getLatitude() == null || airport.getLongitude() == null) return;
 
         WebEngine engine = mapView.getEngine();
-        // Windy expects latitude,longitude
-        engine.load("https://www.windy.com/?" + airport.getLatitude() + "," + airport.getLongitude() + ",12");
+        engine.load(
+                "https://www.windy.com/?"
+                        + airport.getLatitude()
+                        + ","
+                        + airport.getLongitude()
+                        + ",12"
+        );
     }
 }
