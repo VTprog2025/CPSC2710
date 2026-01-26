@@ -11,87 +11,98 @@ import java.util.List;
 
 public class HelloController {
 
-    // Search fields (MATCH FXML)
+    // Search fields (from FXML)
     @FXML private TextField identField;
     @FXML private TextField iataField;
     @FXML private TextField localCodeField;
 
-    // Details fields
-    @FXML private TextField gpsCodeField;      // used as Type display
+    // Detail fields
     @FXML private TextField nameField;
     @FXML private TextField elevationField;
     @FXML private TextField countryField;
     @FXML private TextField regionField;
     @FXML private TextField municipalityField;
 
-    @FXML private Button searchButton;
+    // Map
     @FXML private WebView mapView;
+
+    // Button
+    @FXML private Button searchButton;
 
     private List<Airport> airports;
 
+    public HelloController() {}
+
     @FXML
     public void initialize() {
+
         try {
             airports = Airport.readAll();
+            System.out.println("Loaded " + airports.size() + " airports");
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
 
+        identField.setOnAction(e -> searchAirport());
+        iataField.setOnAction(e -> searchAirport());
+        localCodeField.setOnAction(e -> searchAirport());
         searchButton.setOnAction(e -> searchAirport());
     }
 
     private void searchAirport() {
-        if (airports == null || airports.isEmpty()) return;
 
         String ident = identField.getText().trim();
-        String iata = iataField.getText().trim();
+        String iata  = iataField.getText().trim();
         String local = localCodeField.getText().trim();
+
+        Airport found = null;
 
         for (Airport airport : airports) {
 
             if (!ident.isEmpty() && ident.equalsIgnoreCase(airport.getIdent())) {
-                updateUI(airport);
-                return;
+                found = airport;
+                break;
             }
+            if (!iata.isEmpty() && airport.getIataCode() != null &&
+                    iata.equalsIgnoreCase(airport.getIataCode())) {
+                found = airport;
+                break;
+            }
+            if (!local.isEmpty() && airport.getLocalCode() != null &&
+                    local.equalsIgnoreCase(airport.getLocalCode())) {
+                found = airport;
+                break;
+            }
+        }
 
-            if (!iata.isEmpty() && iata.equalsIgnoreCase(airport.getIataCode())) {
-                updateUI(airport);
-                return;
-            }
-
-            if (!local.isEmpty()
-                    && airport.getLocalCode() != null
-                    && local.equals(airport.getLocalCode().toString())) {
-                updateUI(airport);
-                return;
-            }
+        if (found != null) {
+            updateFields(found);
+            updateMap(found);
         }
     }
 
-    private void updateUI(Airport airport) {
+    private void updateFields(Airport airport) {
 
-        gpsCodeField.setText("N/A"); // Type not in CSV
         nameField.setText(airport.getMunicipality());
         elevationField.setText(
-                airport.getElevationFt() == null ? "" : airport.getElevationFt().toString()
+                airport.getElevationFt() != null
+                        ? airport.getElevationFt().toString()
+                        : ""
         );
         countryField.setText(airport.getCountry());
         regionField.setText(airport.getRegion());
         municipalityField.setText(airport.getMunicipality());
-
-        updateMap(airport);
     }
 
     private void updateMap(Airport airport) {
+
         if (airport.getLatitude() == null || airport.getLongitude() == null) return;
 
         WebEngine engine = mapView.getEngine();
         engine.load(
-                "https://www.windy.com/?"
-                        + airport.getLatitude()
-                        + ","
-                        + airport.getLongitude()
-                        + ",10"
+                "https://www.windy.com/?" +
+                        airport.getLatitude() + "," +
+                        airport.getLongitude() + ",12"
         );
     }
 }
