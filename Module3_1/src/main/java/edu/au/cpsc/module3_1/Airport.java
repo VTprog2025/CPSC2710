@@ -2,7 +2,6 @@ package edu.au.cpsc.module3_1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +19,7 @@ public class Airport {
     private String ident;
     private String type;
     private String name;
-    private String elevationFt;  // keep as String because it may be missing or alphanumeric
+    private String elevationFt;   // kept as String to handle non-numeric entries
     private String continent;
     private String country;
     private String region;
@@ -32,11 +31,9 @@ public class Airport {
     private Double longitude;
     private String coordinates;
 
-    // Constructor
     public Airport(String ident, String type, String name, String elevationFt, String continent,
-                   String country, String region, String municipality,
-                   String gpsCode, String iataCode, String localCode,
-                   Double latitude, Double longitude, String coordinates) {
+                   String country, String region, String municipality, String gpsCode,
+                   String iataCode, String localCode, Double latitude, Double longitude, String coordinates) {
         this.ident = ident;
         this.type = type;
         this.name = name;
@@ -53,89 +50,101 @@ public class Airport {
         this.coordinates = coordinates;
     }
 
-
+    // Getters
     public String getIdent() { return ident; }
-    public void setIdent(String ident) { this.ident = ident; }
-
     public String getType() { return type; }
-    public void setType(String type) { this.type = type; }
-
     public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-
     public String getElevationFt() { return elevationFt; }
-    public void setElevationFt(String elevationFt) { this.elevationFt = elevationFt; }
-
     public String getContinent() { return continent; }
-    public void setContinent(String continent) { this.continent = continent; }
-
     public String getCountry() { return country; }
-    public void setCountry(String country) { this.country = country; }
-
     public String getRegion() { return region; }
-    public void setRegion(String region) { this.region = region; }
-
     public String getMunicipality() { return municipality; }
-    public void setMunicipality(String municipality) { this.municipality = municipality; }
-
     public String getGpsCode() { return gpsCode; }
-    public void setGpsCode(String gpsCode) { this.gpsCode = gpsCode; }
-
     public String getIataCode() { return iataCode; }
-    public void setIataCode(String iataCode) { this.iataCode = iataCode; }
-
     public String getLocalCode() { return localCode; }
-    public void setLocalCode(String localCode) { this.localCode = localCode; }
-
     public Double getLatitude() { return latitude; }
-    public void setLatitude(Double latitude) { this.latitude = latitude; }
-
     public Double getLongitude() { return longitude; }
-    public void setLongitude(Double longitude) { this.longitude = longitude; }
-
     public String getCoordinates() { return coordinates; }
+
+    // Setters
+    public void setIdent(String ident) { this.ident = ident; }
+    public void setType(String type) { this.type = type; }
+    public void setName(String name) { this.name = name; }
+    public void setElevationFt(String elevationFt) { this.elevationFt = elevationFt; }
+    public void setContinent(String continent) { this.continent = continent; }
+    public void setCountry(String country) { this.country = country; }
+    public void setRegion(String region) { this.region = region; }
+    public void setMunicipality(String municipality) { this.municipality = municipality; }
+    public void setGpsCode(String gpsCode) { this.gpsCode = gpsCode; }
+    public void setIataCode(String iataCode) { this.iataCode = iataCode; }
+    public void setLocalCode(String localCode) { this.localCode = localCode; }
+    public void setLatitude(Double latitude) { this.latitude = latitude; }
+    public void setLongitude(Double longitude) { this.longitude = longitude; }
     public void setCoordinates(String coordinates) { this.coordinates = coordinates; }
 
-
+    /**
+     * Reads all airports from the CSV file in resources and returns them as a List.
+     * @return List of Airport objects
+     * @throws IOException if the file cannot be read
+     */
     public static List<Airport> readAll() throws IOException {
         List<Airport> airports = new ArrayList<>();
 
-        InputStream is = Airport.class.getClassLoader().getResourceAsStream("airport-codes.csv");
-        if (is == null) {
+        // Load CSV from resources folder
+        java.net.URL resourceUrl = Airport.class.getClassLoader().getResource("airport-codes.csv");
+        if (resourceUrl == null) {
             throw new IOException("Could not find resource: airport-codes.csv");
         }
 
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(resourceUrl.openStream()))) {
             String line;
-            reader.readLine(); // skip header
+            int lineNumber = 0;
+
+            // Skip header row
+            reader.readLine();
+            lineNumber++;
 
             while ((line = reader.readLine()) != null) {
-                line = line.replaceAll("\"", ""); // remove quotes
-                String[] data = line.split(",", -1); // keep empty fields
-                if (data.length < 14) continue; // skip invalid rows
+                lineNumber++;
+                line = line.replaceAll("\"", ""); // Remove quotes
+                String[] data = line.split(",", -1); // Keep empty fields
 
-                String ident = data[0].isEmpty() ? null : data[0];
-                String type = data[1].isEmpty() ? null : data[1];
-                String name = data[2].isEmpty() ? null : data[2];
-                String elevationFt = data[3].isEmpty() ? null : data[3];
-                String continent = data[4].isEmpty() ? null : data[4];
-                String country = data[5].isEmpty() ? null : data[5];
-                String region = data[6].isEmpty() ? null : data[6];
-                String municipality = data[7].isEmpty() ? null : data[7];
-                String gpsCode = data[8].isEmpty() ? null : data[8];
-                String iataCode = data[9].isEmpty() ? null : data[9];
-                String localCode = data[10].isEmpty() ? null : data[10];
-                Double latitude = data[11].isEmpty() ? null : Double.valueOf(data[11]);
-                Double longitude = data[12].isEmpty() ? null : Double.valueOf(data[12]);
-                String coordinates = data[13].isEmpty() ? null : data[13];
+                if (data.length < 12) continue; // skip incomplete lines
 
-                airports.add(new Airport(ident, type, name, elevationFt, continent,
-                        country, region, municipality, gpsCode, iataCode, localCode,
-                        latitude, longitude, coordinates));
+                // Parse fields safely
+                String ident        = data.length > 0 ? data[0] : null;
+                String type         = data.length > 1 ? data[1] : null;
+                String name         = data.length > 2 ? data[2] : null;
+                String elevationFt  = data.length > 3 ? data[3] : null;
+                String continent    = data.length > 4 ? data[4] : null;
+                String country      = data.length > 5 ? data[5] : null;
+                String region       = data.length > 6 ? data[6] : null;
+                String municipality = data.length > 7 ? data[7] : null;
+                String gpsCode      = data.length > 8 ? data[8] : null;
+                String iataCode     = data.length > 9 ? data[9] : null;
+                String localCode    = data.length > 10 ? data[10] : null;
+
+                Double latitude = null;
+                Double longitude = null;
+                if (data.length > 11 && !data[11].isEmpty()) {
+                    try { latitude = Double.valueOf(data[11]); }
+                    catch (NumberFormatException e) { /* ignore invalid latitude */ }
+                }
+                if (data.length > 12 && !data[12].isEmpty()) {
+                    try { longitude = Double.valueOf(data[12]); }
+                    catch (NumberFormatException e) { /* ignore invalid longitude */ }
+                }
+
+                String coordinates = data.length > 13 ? data[13] : null;
+
+                airports.add(new Airport(
+                        ident, type, name, elevationFt, continent, country, region,
+                        municipality, gpsCode, iataCode, localCode, latitude, longitude, coordinates
+                ));
             }
         }
 
-        System.out.println("Loaded " + airports.size() + " airports");
+        System.out.println("Loaded " + airports.size() + " airports successfully!");
         return airports;
     }
 }

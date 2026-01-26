@@ -36,11 +36,11 @@
                                 <Label text="Local Code:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                                 <TextField fx:id="localCodeField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                             </children>
-                     <rowConstraints>
-                        <RowConstraints />
-                        <RowConstraints />
-                        <RowConstraints />
-                     </rowConstraints>
+                            <rowConstraints>
+                                <RowConstraints />
+                                <RowConstraints />
+                                <RowConstraints />
+                            </rowConstraints>
                         </GridPane>
                     </content>
                 </TitledPane>
@@ -58,7 +58,7 @@
                             </padding>
                             <children>
                                 <Label text="Type:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                <TextField fx:id="gpsCodeField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <TextField fx:id="typeField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
                                 <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                                 <TextField fx:id="nameField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -75,14 +75,14 @@
                                 <Label text="Municipality:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
                                 <TextField fx:id="municipalityField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                             </children>
-                     <rowConstraints>
-                        <RowConstraints />
-                        <RowConstraints />
-                        <RowConstraints />
-                        <RowConstraints />
-                        <RowConstraints />
-                        <RowConstraints />
-                     </rowConstraints>
+                            <rowConstraints>
+                                <RowConstraints />
+                                <RowConstraints />
+                                <RowConstraints />
+                                <RowConstraints />
+                                <RowConstraints />
+                                <RowConstraints />
+                            </rowConstraints>
                         </GridPane>
                     </content>
                 </TitledPane>
