@@ -11,12 +11,12 @@ import java.util.List;
 
 public class HelloController {
 
-    // Search fields (from FXML)
-    @FXML private TextField identField;
-    @FXML private TextField iataField;
+    // Search field
     @FXML private TextField localCodeField;
 
     // Detail fields
+    @FXML
+    private TextField typeField;
     @FXML private TextField nameField;
     @FXML private TextField elevationField;
     @FXML private TextField countryField;
@@ -31,45 +31,31 @@ public class HelloController {
 
     private List<Airport> airports;
 
-    public HelloController() {}
-
     @FXML
     public void initialize() {
-
         try {
             airports = Airport.readAll();
             System.out.println("Loaded " + airports.size() + " airports");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            return;
         }
 
-        identField.setOnAction(e -> searchAirport());
-        iataField.setOnAction(e -> searchAirport());
+        // Trigger search when Enter is pressed or button clicked
         localCodeField.setOnAction(e -> searchAirport());
         searchButton.setOnAction(e -> searchAirport());
     }
 
     private void searchAirport() {
+        if (airports == null || airports.isEmpty()) return;
 
-        String ident = identField.getText().trim();
-        String iata  = iataField.getText().trim();
         String local = localCodeField.getText().trim();
 
         Airport found = null;
 
         for (Airport airport : airports) {
-
-            if (!ident.isEmpty() && ident.equalsIgnoreCase(airport.getIdent())) {
-                found = airport;
-                break;
-            }
-            if (!iata.isEmpty() && airport.getIataCode() != null &&
-                    iata.equalsIgnoreCase(airport.getIataCode())) {
-                found = airport;
-                break;
-            }
             if (!local.isEmpty() && airport.getLocalCode() != null &&
-                    local.equalsIgnoreCase(airport.getLocalCode())) {
+                    local.equalsIgnoreCase(airport.getLocalCode().toString())) {
                 found = airport;
                 break;
             }
@@ -78,31 +64,44 @@ public class HelloController {
         if (found != null) {
             updateFields(found);
             updateMap(found);
+        } else {
+            clearFields();
         }
     }
 
     private void updateFields(Airport airport) {
-
-        nameField.setText(airport.getMunicipality());
-        elevationField.setText(
-                airport.getElevationFt() != null
-                        ? airport.getElevationFt().toString()
-                        : ""
-        );
-        countryField.setText(airport.getCountry());
-        regionField.setText(airport.getRegion());
-        municipalityField.setText(airport.getMunicipality());
+        getTypeField().setText("N/A"); // No type in Airport class
+        nameField.setText(airport.getMunicipality() != null ? airport.getMunicipality() : "");
+        elevationField.setText(airport.getElevationFt() != null ? airport.getElevationFt().toString() : "");
+        countryField.setText(airport.getCountry() != null ? airport.getCountry() : "");
+        regionField.setText(airport.getRegion() != null ? airport.getRegion() : "");
+        municipalityField.setText(airport.getMunicipality() != null ? airport.getMunicipality() : "");
     }
 
     private void updateMap(Airport airport) {
-
         if (airport.getLatitude() == null || airport.getLongitude() == null) return;
 
         WebEngine engine = mapView.getEngine();
-        engine.load(
-                "https://www.windy.com/?" +
-                        airport.getLatitude() + "," +
-                        airport.getLongitude() + ",12"
-        );
+        engine.load("https://www.windy.com/?" + airport.getLatitude() + "," + airport.getLongitude() + ",12");
+    }
+
+    private void clearFields() {
+        getTypeField().clear();
+        nameField.clear();
+        elevationField.clear();
+        countryField.clear();
+        regionField.clear();
+        municipalityField.clear();
+
+        WebEngine engine = mapView.getEngine();
+        engine.load(""); // clear map
+    }
+
+    public TextField getTypeField() {
+        return typeField;
+    }
+
+    public void setTypeField(TextField typeField) {
+        this.typeField = typeField;
     }
 }

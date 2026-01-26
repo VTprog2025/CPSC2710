@@ -8,125 +8,147 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * Project: Module 3 Assignment
+ * Project: Module3 Assignment
  * Author: Christopher Boartfield
- * AU Email: clb0214@auburn.edu
+ * AU_Email: clb0214@auburn.edu
  * Date: 1-22-2026
- * Description: Airport domain model loaded from CSV.
+ * Description: Represents an airport and provides a static method to read airports from a CSV file in resources.
  */
 
 public class Airport {
 
-    private String ident;
-    private String iataCode;
-    private String localCode;
-    private Integer elevationFt;
+    // Instance variables (use wrapper types for nullable numeric fields)
+    Integer elevationFt;
     private String continent;
-    private String country;
-    private String region;
-    private String municipality;
-    private Double latitude;
-    private Double longitude;
+    String country;
+    String region;
+    String municipality;
+    private Integer gpsCode;
+    Integer localCode;
+    Double latitude;
+    Double longitude;
 
-    public Airport(String ident, String iataCode, String localCode,
-                   Integer elevationFt, String continent, String country,
-                   String region, String municipality,
-                   Double latitude, Double longitude) {
-
-        this.ident = ident;
-        this.iataCode = iataCode;
-        this.localCode = localCode;
+    public Airport(Integer elevationFt, String continent, String country, String region, String municipality, Integer gpsCode, Integer localCode, Double latitude, Double longitude) {
         this.elevationFt = elevationFt;
-        this.continent = continent;
-        this.country = country;
-        this.region = region;
-        this.municipality = municipality;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
-
-    // ---------- Getters ----------
-
-    public String getIdent() {
-        return ident;
-    }
-
-    public String getIataCode() {
-        return iataCode;
-    }
-
-    public String getLocalCode() {
-        return localCode;
     }
 
     public Integer getElevationFt() {
         return elevationFt;
     }
 
-    public String getContinent() {
-        return continent;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String getRegion() {
-        return region;
-    }
-
-    public String getMunicipality() {
-        return municipality;
+    public void setElevationFt(Integer elevationFt) {
+        this.elevationFt = elevationFt;
     }
 
     public Double getLatitude() {
         return latitude;
     }
 
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
     public Double getLongitude() {
         return longitude;
     }
 
-    // ---------- CSV Loader ----------
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
 
+    public Integer getLocalCode() {
+        return localCode;
+    }
+
+    public void setLocalCode(Integer localCode) {
+        this.localCode = localCode;
+    }
+
+    public Integer getGpsCode() {
+        return gpsCode;
+    }
+
+    public void setGpsCode(Integer gpsCode) {
+        this.gpsCode = gpsCode;
+    }
+
+    public String getContinent() {
+        return continent;
+    }
+
+    public void setContinent(String continent) {
+        this.continent = continent;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getMunicipality() {
+        return municipality;
+    }
+
+    public void setMunicipality(String municipality) {
+        this.municipality = municipality;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    /**
+     * Reads all airports from the CSV file in resources and returns them as a List.
+     * @return List of Airport objects
+     * @throws IOException if the file cannot be read
+     */
     public static List<Airport> readAll() throws IOException {
         List<Airport> airports = new ArrayList<>();
 
-        InputStream is = Airport.class
-                .getClassLoader()
-                .getResourceAsStream("airport-codes.csv");
-
+        // Load CSV from resources folder
+        InputStream is = Airport.class.getClassLoader().getResourceAsStream("airport-codes.csv");
         if (is == null) {
             throw new IOException("Could not find resource: airport-codes.csv");
         }
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
+            String line;
 
-            String line = reader.readLine(); // skip header
+            // Skip header row
+            reader.readLine();
 
             while ((line = reader.readLine()) != null) {
-                String[] data = line.split(",", -1);
+                line = line.replaceAll("\"", ""); // Remove quotes
+                String[] data = line.split(",", -1); // Keep empty fields
 
-                String ident        = data[0];
-                String iataCode     = data[1].isEmpty() ? null : data[1];
-                String localCode    = data[2].isEmpty() ? null : data[2];
-                Integer elevationFt = data[3].isEmpty() ? null : Integer.parseInt(data[3]);
-                String continent    = data[4];
-                String country      = data[5];
-                String region       = data[6];
-                String municipality = data[7];
-                Double latitude     = data[8].isEmpty() ? null : Double.parseDouble(data[8]);
-                Double longitude    = data[9].isEmpty() ? null : Double.parseDouble(data[9]);
+                if (data.length < 9) continue;
 
-                airports.add(new Airport(
-                        ident, iataCode, localCode,
-                        elevationFt, continent, country,
-                        region, municipality,
-                        latitude, longitude
-                ));
+                // Parse fields, handle missing values
+                Integer elevationFt = data[0].isEmpty() ? null : Integer.valueOf(data[0]);
+                String continent    = data[1];
+                String country      = data[2];
+                String region       = data[3];
+                String municipality = data[4];
+                Integer gpsCode     = data[5].isEmpty() ? null : Integer.valueOf(data[5]);
+                Integer localCode   = data[6].isEmpty() ? null : Integer.valueOf(data[6]);
+                Double latitude     = data[7].isEmpty() ? null : Double.valueOf(data[7]);
+                Double longitude    = data[8].isEmpty() ? null : Double.valueOf(data[8]);
+
+                airports.add(new Airport(elevationFt, continent, country, region,
+                        municipality, gpsCode, localCode, latitude, longitude));
             }
         }
 
+        System.out.println("Loaded " + airports.size() + " airports"); // Simple logging
         return airports;
     }
+
+
 }

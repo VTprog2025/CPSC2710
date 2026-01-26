@@ -22,7 +22,7 @@ public class AirportApplication extends Application {
         stage.show();
     }
 
-    static void main(String[] args) {
+    static void main() {
         launch();
     }
 }
