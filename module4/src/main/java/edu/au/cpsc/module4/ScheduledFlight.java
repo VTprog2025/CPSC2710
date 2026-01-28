@@ -7,17 +7,18 @@ package edu.au.cpsc.module4;
  * Description: Flight designator class
  */
 
+import java.time.LocalTime;
 import java.util.Objects;
 
-public class FlightDesignator {
+public class ScheduledFlight {
     private String departureAirportId;
     private String arrivalAirportId;
-    private int departureTime;
-    private int arrivalTime;
-    private int daysOfWeek;
+    private LocalTime departureTime;
+    private LocalTime arrivalTime;
+    private LocalTime daysOfWeek;
 
-    public FlightDesignator(String departureAirportId, String arrivalAirportId, int departureTime,
-                            int arrivalTime, int daysOfWeek) {
+    public void FlightDesignator(String departureAirportId, String arrivalAirportId, LocalTime departureTime,
+                                 LocalTime arrivalTime, LocalTime daysOfWeek) {
         this.departureAirportId = departureAirportId;
         this.arrivalAirportId = arrivalAirportId;
         this.departureTime = departureTime;
@@ -55,8 +56,8 @@ public class FlightDesignator {
         this.departureAirportId = departureAirportId;
     }
 
-    public int getDepartureTime() {
-        if  (departureTime == 0) {
+    public LocalTime getDepartureTime() {
+        if  (false) {
             throw new NullPointerException("DepartureTime cannot be null");
         }
         else {
@@ -64,12 +65,12 @@ public class FlightDesignator {
         }
     }
 
-    public void setDepartureTime(int departureTime) {
+    public void setDepartureTime(LocalTime departureTime) {
         this.departureTime = departureTime;
     }
 
-    public int getArrivalTime() {
-        if (arrivalTime == 0) {
+    public LocalTime getArrivalTime() {
+        if (false) {
             throw new NullPointerException("ArrivalTime cannot be null");
         }
         else {
@@ -77,14 +78,14 @@ public class FlightDesignator {
         }
     }
 
-    public void setArrivalTime(int arrivalTime) {
+    public void setArrivalTime(LocalTime arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        FlightDesignator that = (FlightDesignator) o;
+        ScheduledFlight that = (ScheduledFlight) o;
         return daysOfWeek == that.daysOfWeek;
     }
 
