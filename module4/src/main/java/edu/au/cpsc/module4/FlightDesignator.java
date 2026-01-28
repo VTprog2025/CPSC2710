@@ -7,6 +7,8 @@ package edu.au.cpsc.module4;
  * Description: Flight designator class
  */
 
+import java.util.Objects;
+
 public class FlightDesignator {
     private String departureAirportId;
     private String arrivalAirportId;
@@ -79,17 +81,15 @@ public class FlightDesignator {
         this.arrivalTime = arrivalTime;
     }
 
-    public int getDaysOfWeek() {
-        if  (daysOfWeek == 0) {
-            throw new NullPointerException("DaysOfWeek cannot be null");
-        }
-        else {
-            return daysOfWeek;
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        FlightDesignator that = (FlightDesignator) o;
+        return daysOfWeek == that.daysOfWeek;
     }
 
-    public void setDaysOfWeek(int daysOfWeek) {
-        this.daysOfWeek = daysOfWeek;
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(daysOfWeek);
     }
-
 }
