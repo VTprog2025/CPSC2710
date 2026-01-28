@@ -7,90 +7,96 @@ package edu.au.cpsc.module4;
  * Description: Flight designator class
  */
 
+import java.time.DayOfWeek;
 import java.time.LocalTime;
-import java.util.Objects;
+import java.util.HashSet;
 
 public class ScheduledFlight {
+
+    private String flightDesignator;
     private String departureAirportId;
     private String arrivalAirportId;
     private LocalTime departureTime;
     private LocalTime arrivalTime;
-    private LocalTime daysOfWeek;
+    private HashSet<DayOfWeek> daysOfWeek;
 
-    public void FlightDesignator(String departureAirportId, String arrivalAirportId, LocalTime departureTime,
-                                 LocalTime arrivalTime, LocalTime daysOfWeek) {
-        this.departureAirportId = departureAirportId;
-        this.arrivalAirportId = arrivalAirportId;
-        this.departureTime = departureTime;
-        this.arrivalTime = arrivalTime;
-        this.daysOfWeek = daysOfWeek;
-
+    public ScheduledFlight(String flightDesignator,
+                           String departureAirportId,
+                           String arrivalAirportId,
+                           LocalTime departureTime,
+                           LocalTime arrivalTime,
+                           HashSet<DayOfWeek> daysOfWeek) {
+        setFlightDesignator(flightDesignator);
+        setDepartureAirportId(departureAirportId);
+        setArrivalAirportId(arrivalAirportId);
+        setDepartureTime(departureTime);
+        setArrivalTime(arrivalTime);
+        setDaysOfWeek(daysOfWeek);
     }
 
-/* getters and setters
-* @throws NullPointerException if value is 0 or null.
- */
-    public String getArrivalAirportId() {
-        if (arrivalAirportId == null) {
-            throw new NullPointerException("ArrivalAirportId is null");
-        }
-        else {
-            return arrivalAirportId;
-        }
+    public String getFlightDesignator() {
+        return flightDesignator;
     }
 
-    public void setArrivalAirportId(String arrivalAirportId) {
-        this.arrivalAirportId = arrivalAirportId;
+    public void setFlightDesignator(String flightDesignator) {
+        if (flightDesignator == null) {
+            throw new IllegalArgumentException("flightDesignator cannot be null");
+        }
+        this.flightDesignator = flightDesignator;
     }
 
     public String getDepartureAirportId() {
-        if (departureAirportId == null) {
-            throw new NullPointerException("DepartureAirportId is null");
-        }
-        else {
-            return departureAirportId;
-        }
+        return departureAirportId;
     }
 
     public void setDepartureAirportId(String departureAirportId) {
+        if (departureAirportId == null) {
+            throw new IllegalArgumentException("departureAirportId cannot be null");
+        }
         this.departureAirportId = departureAirportId;
     }
 
+    public String getArrivalAirportId() {
+        return arrivalAirportId;
+    }
+
+    public void setArrivalAirportId(String arrivalAirportId) {
+        if (arrivalAirportId == null) {
+            throw new IllegalArgumentException("arrivalAirportId cannot be null");
+        }
+        this.arrivalAirportId = arrivalAirportId;
+    }
+
     public LocalTime getDepartureTime() {
-        if  (false) {
-            throw new NullPointerException("DepartureTime cannot be null");
-        }
-        else {
-            return departureTime;
-        }
+        return departureTime;
     }
 
     public void setDepartureTime(LocalTime departureTime) {
+        if (departureTime == null) {
+            throw new IllegalArgumentException("departureTime cannot be null");
+        }
         this.departureTime = departureTime;
     }
 
     public LocalTime getArrivalTime() {
-        if (false) {
-            throw new NullPointerException("ArrivalTime cannot be null");
-        }
-        else {
-            return arrivalTime;
-        }
+        return arrivalTime;
     }
 
     public void setArrivalTime(LocalTime arrivalTime) {
+        if (arrivalTime == null) {
+            throw new IllegalArgumentException("arrivalTime cannot be null");
+        }
         this.arrivalTime = arrivalTime;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        ScheduledFlight that = (ScheduledFlight) o;
-        return daysOfWeek == that.daysOfWeek;
+    public HashSet<DayOfWeek> getDaysOfWeek() {
+        return daysOfWeek;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(daysOfWeek);
+    public void setDaysOfWeek(HashSet<DayOfWeek> daysOfWeek) {
+        if (daysOfWeek == null) {
+            throw new IllegalArgumentException("daysOfWeek cannot be null");
+        }
+        this.daysOfWeek = daysOfWeek;
     }
 }
