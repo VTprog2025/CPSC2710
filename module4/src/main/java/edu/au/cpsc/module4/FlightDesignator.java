@@ -8,60 +8,88 @@ package edu.au.cpsc.module4;
  */
 
 public class FlightDesignator {
-    private String departureAirportIdent;
-    private String arrivalAirportIdent;
+    private String departureAirportId;
+    private String arrivalAirportId;
     private int departureTime;
     private int arrivalTime;
     private int daysOfWeek;
 
-    public FlightDesignator(departureAirportIdent, arrivalAirportIdent, departureTime, arrivalTime, daysOfWeek) {
-        this.departureAirportIdent = departureAirportIdent;
-        this.arrivalAirportIdent = arrivalAirportIdent;
+    public FlightDesignator(String departureAirportId, String arrivalAirportId, int departureTime,
+                            int arrivalTime, int daysOfWeek) {
+        this.departureAirportId = departureAirportId;
+        this.arrivalAirportId = arrivalAirportId;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
         this.daysOfWeek = daysOfWeek;
 
     }
 
-    public String getArrivalAirportIdent() {
-        return arrivalAirportIdent;
-    }
-    public void setArrivalAirportIdent(String arrivalAirportIdent) {
-        this.arrivalAirportIdent = arrivalAirportIdent;
-        if (arrivalAirportIdent == null){
-            throw new NullPointerException();
+/* getters and setters
+* @throws NullPointerException if value is 0 or null.
+ */
+    public String getArrivalAirportId() {
+        if (arrivalAirportId == null) {
+            throw new NullPointerException("ArrivalAirportId is null");
+        }
+        else {
+            return arrivalAirportId;
         }
     }
 
-    public String getDepartureAirportIdent() {
-        return departureAirportIdent;
+    public void setArrivalAirportId(String arrivalAirportId) {
+        this.arrivalAirportId = arrivalAirportId;
     }
-    public void setDepartureAirportIdent(String departureAirportIdent) {
-        this.departureAirportIdent = departureAirportIdent;
-        if (departureAirportIdent == null) {
-            throw new NullPointerException();
+
+    public String getDepartureAirportId() {
+        if (departureAirportId == null) {
+            throw new NullPointerException("DepartureAirportId is null");
+        }
+        else {
+            return departureAirportId;
         }
     }
-    public int getDepartureTime() {
-        return departureTime;
+
+    public void setDepartureAirportId(String departureAirportId) {
+        this.departureAirportId = departureAirportId;
     }
+
+    public int getDepartureTime() {
+        if  (departureTime == 0) {
+            throw new NullPointerException("DepartureTime cannot be null");
+        }
+        else {
+            return departureTime;
+        }
+    }
+
     public void setDepartureTime(int departureTime) {
         this.departureTime = departureTime;
-        if  (departureTime < 0) {
-            throw new NullPointerException();
+    }
+
+    public int getArrivalTime() {
+        if (arrivalTime == 0) {
+            throw new NullPointerException("ArrivalTime cannot be null");
+        }
+        else {
+            return arrivalTime;
         }
     }
-    public int getArrivalTime() {
-        return arrivalTime;
-    }
+
     public void setArrivalTime(int arrivalTime) {
         this.arrivalTime = arrivalTime;
-        if (arrivalTime < 0) {
-            throw new NullPointerException();
+    }
+
+    public int getDaysOfWeek() {
+        if  (daysOfWeek == 0) {
+            throw new NullPointerException("DaysOfWeek cannot be null");
+        }
+        else {
+            return daysOfWeek;
         }
     }
+
     public void setDaysOfWeek(int daysOfWeek) {
         this.daysOfWeek = daysOfWeek;
-        if (daysOfWeek < 0) throw new NullPointerException();
     }
+
 }
