@@ -7,12 +7,21 @@ package edu.au.cpsc.module4;
  * Description: Flight designator class
  */
 
-public class flightDesignator {
-    String departureAirportIdent;
-    String arrivalAirportIdent;
-    int departureTime;
-    int arrivalTime;
-    int daysOfWeek;
+public class FlightDesignator {
+    private String departureAirportIdent;
+    private String arrivalAirportIdent;
+    private int departureTime;
+    private int arrivalTime;
+    private int daysOfWeek;
+
+    public FlightDesignator(departureAirportIdent, arrivalAirportIdent, departureTime, arrivalTime, daysOfWeek) {
+        this.departureAirportIdent = departureAirportIdent;
+        this.arrivalAirportIdent = arrivalAirportIdent;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+        this.daysOfWeek = daysOfWeek;
+
+    }
 
     public String getArrivalAirportIdent() {
         return arrivalAirportIdent;
@@ -50,5 +59,9 @@ public class flightDesignator {
         if (arrivalTime < 0) {
             throw new NullPointerException();
         }
+    }
+    public void setDaysOfWeek(int daysOfWeek) {
+        this.daysOfWeek = daysOfWeek;
+        if (daysOfWeek < 0) throw new NullPointerException();
     }
 }
