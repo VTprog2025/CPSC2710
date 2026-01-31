@@ -1,16 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="edu.au.cpsc.module4.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            prefWidth="800"
+            prefHeight="500">
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+    <!-- TABLE -->
+    <center>
+        <TableView fx:id="flightTable">
+            <columns>
+                <TableColumn text="Flight Designator" prefWidth="150"/>
+                <TableColumn text="Departure Airport" prefWidth="150"/>
+                <TableColumn text="Arrival Airport" prefWidth="150"/>
+                <TableColumn text="Days of Week" prefWidth="200"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <!-- EDITOR -->
+    <bottom>
+        <VBox spacing="8" padding="10"
+              style="-fx-border-color: #007acc; -fx-border-width: 2;">
+
+            <!-- Flight Designator -->
+            <HBox spacing="10">
+                <Label text="Flight Designator:" minWidth="140"/>
+                <TextField fx:id="designatorField" HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- Departure -->
+            <HBox spacing="10">
+                <Label text="Departure Airport:" minWidth="140"/>
+                <TextField fx:id="departureField" HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- Arrival -->
+            <HBox spacing="10">
+                <Label text="Arrival Airport:" minWidth="140"/>
+                <TextField fx:id="arrivalField" HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- Days of Week -->
+            <HBox spacing="6">
+                <Label text="Days of Week:" minWidth="140"/>
+
+                <ToggleButton text="Monday"/>
+                <ToggleButton text="Tuesday"/>
+                <ToggleButton text="Wednesday"/>
+                <ToggleButton text="Thursday"/>
+                <ToggleButton text="Friday"/>
+                <ToggleButton text="Saturday"/>
+                <ToggleButton text="Sunday"/>
+            </HBox>
+
+            <!-- Buttons -->
+            <HBox spacing="10">
+                <Button text="Add"/>
+                <Button text="New"/>
+                <Button text="Delete"/>
+            </HBox>
+
+        </VBox>
+    </bottom>
+
+</BorderPane>
