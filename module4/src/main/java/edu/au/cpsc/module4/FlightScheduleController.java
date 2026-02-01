@@ -82,7 +82,7 @@ public class FlightScheduleController {
         daysCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getDaysString()));
 
         // Listen for selection changes to populate editor
-        flightTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> {
+        flightTable.getSelectionModel().selectedItemProperty().addListener((_, _, newSel) -> {
             if (newSel != null) populateEditor(newSel);
         });
 
@@ -91,9 +91,9 @@ public class FlightScheduleController {
     }
 
     private void setupButtons() {
-        newBtn.setOnAction(e -> clearEditor());
+        newBtn.setOnAction(_ -> clearEditor());
 
-        addUpdateBtn.setOnAction(e -> {
+        addUpdateBtn.setOnAction(_ -> {
             try {
                 ScheduledFlight flight = readEditor();
                 ScheduledFlight selected = flightTable.getSelectionModel().getSelectedItem();
@@ -112,7 +112,7 @@ public class FlightScheduleController {
             }
         });
 
-        deleteBtn.setOnAction(e -> {
+        deleteBtn.setOnAction(_ -> {
             ScheduledFlight selected = flightTable.getSelectionModel().getSelectedItem();
             if (selected != null) {
                 database.removeScheduledFlight(selected);
