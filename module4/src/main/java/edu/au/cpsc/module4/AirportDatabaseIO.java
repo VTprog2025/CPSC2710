@@ -2,8 +2,17 @@ package edu.au.cpsc.module4;
 
 import java.io.*;
 
-public class AirportDatabaseIO {
+/*
+ * Project: project4
+ * Author: Christopher
+ * Auburn Email: clb0214@auburn.edu
+ * Date: 2026-01-31
+ * Description: This class provides static methods to save and load an AirlineDatabase
+ * using Java serialization. It ensures null safety and handles IO exceptions properly.
+ */
+public class AirlineDatabaseIO {
 
+    // Save the AirlineDatabase to an OutputStream
     public static void save(AirlineDatabase ad, OutputStream strm) throws IOException {
         if (ad == null || strm == null) {
             throw new IllegalArgumentException("Arguments cannot be null");
@@ -15,6 +24,7 @@ public class AirportDatabaseIO {
         }
     }
 
+    // Load the AirlineDatabase from an InputStream
     public static AirlineDatabase load(InputStream strm) throws IOException, ClassNotFoundException {
         if (strm == null) {
             throw new IllegalArgumentException("InputStream cannot be null");
