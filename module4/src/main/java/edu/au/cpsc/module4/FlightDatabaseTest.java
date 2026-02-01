@@ -6,7 +6,7 @@ import java.util.HashSet;
 
 public class FlightDatabaseTest {
 
-    public static void main(String[] args) {
+    static void main(String[] ignoredArgs) {
         // Create database
         AirlineDatabase db = new AirlineDatabase();
 
@@ -48,15 +48,15 @@ public class FlightDatabaseTest {
         System.out.println("Flights in database:");
         for (ScheduledFlight f : db.getScheduledFlights()) {
             System.out.println(f.getFlightDesignator() + " | " +
-                    f.getDepartureAirportId() + " -> " +
-                    f.getArrivalAirportId() + " | Dep: " +
+                    f.getDepartureAirportIdent() + " -> " +
+                    f.getArrivalAirportIdent() + " | Dep: " +
                     f.getDepartureTime() + " | Arr: " +
                     f.getArrivalTime() + " | Days: " +
                     f.getDaysString());
         }
 
         // Update a flight
-        flight1.setArrivalAirportId("SFO");
+        flight1.setArrivalAirportIdent("SFO"); // updated getter/setter name
         db.updateScheduledFlight(flight1);
 
         // Remove a flight
@@ -66,11 +66,12 @@ public class FlightDatabaseTest {
         System.out.println("\nAfter update and removal:");
         for (ScheduledFlight f : db.getScheduledFlights()) {
             System.out.println(f.getFlightDesignator() + " | " +
-                    f.getDepartureAirportId() + " -> " +
-                    f.getArrivalAirportId() + " | Dep: " +
+                    f.getDepartureAirportIdent() + " -> " +
+                    f.getArrivalAirportIdent() + " | Dep: " +
                     f.getDepartureTime() + " | Arr: " +
                     f.getArrivalTime() + " | Days: " +
                     f.getDaysString());
         }
     }
 }
+

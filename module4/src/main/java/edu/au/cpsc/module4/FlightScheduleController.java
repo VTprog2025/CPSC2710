@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.DayOfWeek;
@@ -13,6 +14,13 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.HashSet;
 
+/*
+ * Project: project4
+ * Author: Christopher
+ * Auburn Email: clb0214@auburn.edu
+ * Date: 2026-01-31
+ * Description: Controller for the Flight Designator App. Handles table, editor, and database I/O.
+ */
 public class FlightScheduleController {
 
     private final AirlineDatabase database = new AirlineDatabase();
@@ -53,13 +61,14 @@ public class FlightScheduleController {
     public void initialize() {
         setupTable();
         setupButtons();
+        loadDatabase();
     }
 
     private void setupTable() {
         // Bind columns to ScheduledFlight getters
         designatorCol.setCellValueFactory(new PropertyValueFactory<>("flightDesignator"));
-        departureCol.setCellValueFactory(new PropertyValueFactory<>("departureAirportId"));
-        arrivalCol.setCellValueFactory(new PropertyValueFactory<>("arrivalAirportId"));
+        departureCol.setCellValueFactory(new PropertyValueFactory<>("departureAirportIdent"));
+        arrivalCol.setCellValueFactory(new PropertyValueFactory<>("arrivalAirportIdent"));
 
         // Format LocalTime columns as HH:mm
         depTimeCol.setCellValueFactory(data ->
@@ -116,8 +125,8 @@ public class FlightScheduleController {
 
     private void populateEditor(ScheduledFlight flight) {
         flightField.setText(flight.getFlightDesignator());
-        depField.setText(flight.getDepartureAirportId());
-        arrField.setText(flight.getArrivalAirportId());
+        depField.setText(flight.getDepartureAirportIdent());
+        arrField.setText(flight.getArrivalAirportIdent());
         depTimeField.setText(flight.getDepartureTime().format(TIME_FORMATTER));
         arrTimeField.setText(flight.getArrivalTime().format(TIME_FORMATTER));
 
@@ -156,6 +165,10 @@ public class FlightScheduleController {
         String dep = depField.getText().trim();
         String arr = arrField.getText().trim();
 
+        if (flightDesignator.isEmpty() || dep.isEmpty() || arr.isEmpty()) {
+            throw new IllegalArgumentException("Flight Designator, Departure, and Arrival cannot be empty");
+        }
+
         LocalTime depTime;
         LocalTime arrTime;
         try {
@@ -174,6 +187,10 @@ public class FlightScheduleController {
         if (satBtn.isSelected()) days.add(DayOfWeek.SATURDAY);
         if (sunBtn.isSelected()) days.add(DayOfWeek.SUNDAY);
 
+        if (days.isEmpty()) {
+            throw new IllegalArgumentException("At least one day of the week must be selected");
+        }
+
         return new ScheduledFlight(flightDesignator, dep, arr, depTime, arrTime, days);
     }
 
@@ -186,9 +203,19 @@ public class FlightScheduleController {
 
     private void saveDatabase() {
         try (FileOutputStream fos = new FileOutputStream(DATABASE_FILE)) {
-            AirportDatabaseIO.save(database, fos);
+            AirlineDatabaseIO.save(database, fos);
         } catch (IOException e) {
             showAlert("Failed to save database: " + e.getMessage());
+        }
+    }
+
+    private void loadDatabase() {
+        try (FileInputStream fis = new FileInputStream(DATABASE_FILE)) {
+            AirlineDatabase loadedDb = AirlineDatabaseIO.load(fis);
+            database.getScheduledFlights().addAll(loadedDb.getScheduledFlights());
+            flightTable.getItems().addAll(database.getScheduledFlights());
+        } catch (Exception e) {
+            System.out.println("No database found, starting with an empty database.");
         }
     }
 }
