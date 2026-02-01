@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="edu.au.cpsc.module4.FlightScheduleController"
+      spacing="10">
+
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <!-- TableView -->
+    <TableView fx:id="flightTable" prefHeight="200" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="designatorCol" text="Flight"/>
+            <TableColumn fx:id="departureCol" text="Departure"/>
+            <TableColumn fx:id="arrivalCol" text="Arrival"/>
+            <TableColumn fx:id="depTimeCol" text="Departure Time"/>
+            <TableColumn fx:id="arrTimeCol" text="Arrival Time"/>
+            <TableColumn fx:id="daysCol" text="Days"/>
+        </columns>
+    </TableView>
+
+    <!-- Editor Fields -->
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="30"/>
+            <ColumnConstraints percentWidth="70"/>
+        </columnConstraints>
+
+        <Label text="Flight:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="flightField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Departure:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="depField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Arrival:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="arrField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Dep Time:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="depTimeField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Arr Time:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="arrTimeField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <!-- Days ToggleButtons -->
+    <VBox spacing="5">
+        <HBox spacing="5">
+            <Label text="Days of Week:"/>
+            <ToggleButton fx:id="monBtn" text="Monday"/>
+            <ToggleButton fx:id="tueBtn" text="Tuesday"/>
+            <ToggleButton fx:id="wedBtn" text="Wednesday"/>
+            <ToggleButton fx:id="thuBtn" text="Thursday"/>
+            <ToggleButton fx:id="friBtn" text="Friday"/>
+            <ToggleButton fx:id="satBtn" text="Saturday"/>
+            <ToggleButton fx:id="sunBtn" text="Sunday"/>
+        </HBox>
+
+        <!-- Buttons under Days of Week label, aligned left -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button fx:id="addUpdateBtn" text="Add"/>
+            <Button fx:id="newBtn" text="New"/>
+            <Button fx:id="deleteBtn" text="Delete"/>
+        </HBox>
+    </VBox>
+
+</VBox>
