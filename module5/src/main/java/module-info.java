@@ -1,8 +1,10 @@
-module edu.au.cpsc.module5 {
+module edu.au.cpsc.miscstyle {
     requires javafx.controls;
     requires javafx.fxml;
 
+    // This allows the FXML loader to access the controller class and its members
+    opens edu.au.cpsc.miscstyle to javafx.fxml;
 
-    opens edu.au.cpsc.module5 to javafx.fxml;
-    exports edu.au.cpsc.module5;
+    // This makes the package available to other modules if needed
+    exports edu.au.cpsc.miscstyle;
 }
