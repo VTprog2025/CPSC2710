@@ -18,7 +18,6 @@
     -fx-fill: #7e7f9a;
 }
 
-
 /* -------------------------------------------------
    Rectangle with border inside VBox > Group
    ------------------------------------------------- */
@@ -30,7 +29,6 @@ vbox > group > rectangle {
     -fx-fill: transparent;
 }
 
-
 /* -------------------------------------------------
    Circle behind rectangle
    ------------------------------------------------- */
@@ -38,7 +36,6 @@ vbox > group > rectangle {
 circle {
     -fx-fill: #7e7f9a;
 }
-
 
 /* -------------------------------------------------
    Hyperlinks
@@ -52,7 +49,6 @@ circle {
 .hyperlink:visited {
     -fx-text-fill: #272838;
 }
-
 
 /* -------------------------------------------------
    ComboBox substructure styling
@@ -68,7 +64,6 @@ circle {
     -fx-background-color: white;
 }
 
-
 /* -------------------------------------------------
    CheckBox checkmark
    ------------------------------------------------- */
@@ -76,7 +71,6 @@ circle {
 .check-box .box {
     -fx-background-color: #7e7f9a;
 }
-
 
 /* -------------------------------------------------
    Button row alignment
