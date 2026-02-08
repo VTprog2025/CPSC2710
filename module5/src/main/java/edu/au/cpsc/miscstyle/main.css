@@ -1,78 +1,81 @@
 /* -------------------------------------------------
-   Root GridPane
+   Background + foreground colors
    ------------------------------------------------- */
-.grid-pane {
-    -fx-background-color: #f0f0f0; /* light neutral background */
-    -fx-padding: 20;
-    -fx-hgap: 20;
-    -fx-vgap: 20;
+
+#background {
+    -fx-background-color: #dad7cd;
+}
+
+#foreground {
+    -fx-fill: #272838;
+}
+
+#highlight {
+    -fx-fill: #ff6b6b;
+}
+
+#accent {
+    -fx-fill: #7e7f9a;
 }
 
 /* -------------------------------------------------
-   Buttons (2x2)
+   Rectangle with border inside VBox > Group
    ------------------------------------------------- */
-#airports-btn,
-#seat-reservation-btn,
-#flight-schedule-btn,
-#aircraft-btn {
-    -fx-font-family: 'Roboto'; /* your downloaded font */
-    -fx-font-size: 16px;
-    -fx-pref-width: 150px;
-    -fx-pref-height: 80px;
-    -fx-background-radius: 10;
-    -fx-border-radius: 10;
-    -fx-border-color: #272838;
-    -fx-border-width: 2;
-    -fx-opacity: 0.9; /* slightly transparent */
-}
 
-/* Top two buttons use larger font */
-#airports-btn,
-#seat-reservation-btn {
-    -fx-font-size: 18px;
+vbox > group > rectangle {
+    -fx-stroke-width: 5;
+    -fx-stroke-type: inside;
+    -fx-stroke: rgb(70, 155, 75);
+    -fx-fill: transparent;
 }
 
 /* -------------------------------------------------
-   Button hover effects
+   Circle behind rectangle
    ------------------------------------------------- */
-#airports-btn:hover,
-#seat-reservation-btn:hover,
-#flight-schedule-btn:hover,
-#aircraft-btn:hover {
+
+circle {
+    -fx-fill: #7e7f9a;
+}
+
+/* -------------------------------------------------
+   Hyperlinks
+   ------------------------------------------------- */
+
+.hyperlink {
+    -fx-text-fill: #ff6b6b;
+    -fx-underline: true;
+}
+
+.hyperlink:visited {
+    -fx-text-fill: #272838;
+}
+
+/* -------------------------------------------------
+   ComboBox substructure styling
+   ------------------------------------------------- */
+
+/* Arrow button background */
+.combo-box .arrow-button {
     -fx-background-color: #ff6b6b;
-    -fx-text-fill: white;
+}
+
+/* Arrow color */
+.combo-box .arrow-button .arrow {
+    -fx-background-color: white;
 }
 
 /* -------------------------------------------------
-   Button icons
+   CheckBox checkmark
    ------------------------------------------------- */
-#airports-btn {
-    -fx-graphic: url("/edu/au/cpsc/launcher/style/icons/airports.png");
-    -fx-graphic-text-gap: 10px;
-}
 
-#seat-reservation-btn {
-    -fx-graphic: url("/edu/au/cpsc/launcher/style/icons/seat.png");
-    -fx-graphic-text-gap: 10px;
-}
-
-#flight-schedule-btn {
-    -fx-graphic: url("/edu/au/cpsc/launcher/style/icons/flight.png");
-    -fx-graphic-text-gap: 10px;
-}
-
-#aircraft-btn {
-    -fx-graphic: url("/edu/au/cpsc/launcher/style/icons/aircraft.png");
-    -fx-graphic-text-gap: 10px;
+.check-box .box {
+    -fx-background-color: #7e7f9a;
 }
 
 /* -------------------------------------------------
-   Background logo (optional)
+   Button row alignment
    ------------------------------------------------- */
-.grid-pane {
-    -fx-background-image: url("/edu/au/cpsc/launcher/style/logo.png");
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: contain;
-    -fx-opacity: 0.95;
+
+#button-row {
+    -fx-alignment: center-right;
 }
