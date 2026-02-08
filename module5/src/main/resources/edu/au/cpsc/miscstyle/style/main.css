@@ -47,32 +47,22 @@
    Button icons
    ------------------------------------------------- */
 #airports-btn {
-    -fx-graphic: url("/edu/au/cpsc/launcher/style/icons/airports.png");
+    -fx-graphic: url("/edu/au/cpsc/miscstyle/style/icons/airport.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #seat-reservation-btn {
-    -fx-graphic: url("/edu/au/cpsc/launcher/style/icons/seat.png");
+    -fx-graphic: url("/edu/au/cpsc/miscstyle/style/icons/seat.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #flight-schedule-btn {
-    -fx-graphic: url("/edu/au/cpsc/launcher/style/icons/flight.png");
+    -fx-graphic: url("/edu/au/cpsc/miscstyle/style/icons/flight.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #aircraft-btn {
-    -fx-graphic: url("/edu/au/cpsc/launcher/style/icons/aircraft.png");
+    -fx-graphic: url("/edu/au/cpsc/miscstyle/style/icons/airplane.png");
     -fx-graphic-text-gap: 10px;
 }
 
-/* -------------------------------------------------
-   Background logo (optional)
-   ------------------------------------------------- */
-.grid-pane {
-    -fx-background-image: url("/edu/au/cpsc/launcher/style/logo.png");
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: contain;
-    -fx-opacity: 0.95;
-}
