@@ -10,36 +10,36 @@
           vgap="20"
           padding="20">
 
-    <!-- Top-left button -->
-    <Button fx:id="airport-btn"
+    <!-- Top-left button: Airports -->
+    <Button fx:id="AirportsBtn"
             text="Airports"
             GridPane.rowIndex="0"
             GridPane.columnIndex="0"
-            minWidth="120"
-            minHeight="80"/>
+            minWidth="150"
+            minHeight="100"/>
 
-    <!-- Top-right button -->
-    <Button fx:id="seat-btn"
+    <!-- Top-right button: Seat Reservation -->
+    <Button fx:id="SeatReservationBtn"
             text="Seat Reservation"
             GridPane.rowIndex="0"
             GridPane.columnIndex="1"
-            minWidth="120"
-            minHeight="80"/>
+            minWidth="150"
+            minHeight="100"/>
 
-    <!-- Bottom-left button -->
-    <Button fx:id="flight-btn"
+    <!-- Bottom-left button: Flight Schedule -->
+    <Button fx:id="FlightScheduleBtn"
             text="Flight Schedule"
             GridPane.rowIndex="1"
             GridPane.columnIndex="0"
-            minWidth="120"
-            minHeight="80"/>
+            minWidth="150"
+            minHeight="100"/>
 
-    <!-- Bottom-right button -->
-    <Button fx:id="airplane-btn"
+    <!-- Bottom-right button: Aircraft -->
+    <Button fx:id="AircraftBtn"
             text="Aircraft"
             GridPane.rowIndex="1"
             GridPane.columnIndex="1"
-            minWidth="120"
-            minHeight="80"/>
+            minWidth="150"
+            minHeight="100"/>
 
 </GridPane>
