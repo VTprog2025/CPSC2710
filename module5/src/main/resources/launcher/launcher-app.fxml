@@ -4,14 +4,14 @@
 <?import javafx.scene.layout.GridPane?>
 
 <GridPane xmlns="http://javafx.com/javafx/21"
-          xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="edu.au.cpsc.launcher.LauncherController"
-          styleClass="grid-pane"
-          hgap="20"
-          vgap="20"
-          padding="20">
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="edu.au.cpsc.launcher.LauncherController"
+           styleClass="grid-pane"
+           hgap="20"
+           vgap="20"
+           padding="20,20,20,20">
 
-    <!-- Top-left button: Airports -->
+<!-- Top-left button: Airports -->
     <Button fx:id="airportsBtn"
             text="Airports"
             GridPane.rowIndex="0"

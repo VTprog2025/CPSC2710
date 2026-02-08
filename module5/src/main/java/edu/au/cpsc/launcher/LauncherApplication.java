@@ -11,8 +11,9 @@ public class LauncherApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/edu/au/cpsc/launcher/launcher-app.fxml")
+                getClass().getResource("/launcher/launcher-app.fxml")
         );
+
         Parent root = loader.load();
 
         Scene scene = new Scene(root);
@@ -21,7 +22,4 @@ public class LauncherApplication extends Application {
         primaryStage.show();
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 }
