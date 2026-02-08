@@ -44,25 +44,25 @@
 }
 
 /* -------------------------------------------------
-   Button icons
+   Button icons (commented out if icons don't exist)
    ------------------------------------------------- */
+
 #airports-btn {
-    -fx-graphic: url("/edu/au/cpsc/miscstyle/style/icons/airport.png");
+    -fx-graphic: url("/launcher/stylet.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #seat-reservation-btn {
-    -fx-graphic: url("/edu/au/cpsc/miscstyle/style/icons/seat.png");
+    -fx-graphic: url("/launcher/styleng");
     -fx-graphic-text-gap: 10px;
 }
 
 #flight-schedule-btn {
-    -fx-graphic: url("/edu/au/cpsc/miscstyle/style/icons/flight.png");
+    -fx-graphic: url("/launcher/style.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #aircraft-btn {
-    -fx-graphic: url("/edu/au/cpsc/miscstyle/style/icons/airplane.png");
+    -fx-graphic: url("/launcher/stylene.png");
     -fx-graphic-text-gap: 10px;
 }
-
