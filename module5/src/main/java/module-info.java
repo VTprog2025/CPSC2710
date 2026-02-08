@@ -1,4 +1,4 @@
-module edu.au.cpsc.miscstyle {
+module edu.au.cpsc.launcher {
     requires javafx.controls;
     requires javafx.fxml;
 
