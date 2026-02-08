@@ -1,0 +1,78 @@
+/* -------------------------------------------------
+   Root GridPane
+   ------------------------------------------------- */
+.grid-pane {
+    -fx-background-color: #f0f0f0; /* light neutral background */
+    -fx-padding: 20;
+    -fx-hgap: 20;
+    -fx-vgap: 20;
+}
+
+/* -------------------------------------------------
+   Buttons (2x2)
+   ------------------------------------------------- */
+#airports-btn,
+#seat-reservation-btn,
+#flight-schedule-btn,
+#aircraft-btn {
+    -fx-font-family: 'Roboto'; /* your downloaded font */
+    -fx-font-size: 16px;
+    -fx-pref-width: 150px;
+    -fx-pref-height: 80px;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #272838;
+    -fx-border-width: 2;
+    -fx-opacity: 0.9; /* slightly transparent */
+}
+
+/* Top two buttons use larger font */
+#airports-btn,
+#seat-reservation-btn {
+    -fx-font-size: 18px;
+}
+
+/* -------------------------------------------------
+   Button hover effects
+   ------------------------------------------------- */
+#airports-btn:hover,
+#seat-reservation-btn:hover,
+#flight-schedule-btn:hover,
+#aircraft-btn:hover {
+    -fx-background-color: #ff6b6b;
+    -fx-text-fill: white;
+}
+
+/* -------------------------------------------------
+   Button icons
+   ------------------------------------------------- */
+#airports-btn {
+    -fx-graphic: url("/edu/au/cpsc/launcher/style/icons/airports.png");
+    -fx-graphic-text-gap: 10px;
+}
+
+#seat-reservation-btn {
+    -fx-graphic: url("/edu/au/cpsc/launcher/style/icons/seat.png");
+    -fx-graphic-text-gap: 10px;
+}
+
+#flight-schedule-btn {
+    -fx-graphic: url("/edu/au/cpsc/launcher/style/icons/flight.png");
+    -fx-graphic-text-gap: 10px;
+}
+
+#aircraft-btn {
+    -fx-graphic: url("/edu/au/cpsc/launcher/style/icons/aircraft.png");
+    -fx-graphic-text-gap: 10px;
+}
+
+/* -------------------------------------------------
+   Background logo (optional)
+   ------------------------------------------------- */
+.grid-pane {
+    -fx-background-image: url("/edu/au/cpsc/launcher/style/logo.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: contain;
+    -fx-opacity: 0.95;
+}
