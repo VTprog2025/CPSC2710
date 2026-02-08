@@ -44,25 +44,25 @@
 }
 
 /* -------------------------------------------------
-   Button icons (commented out if icons don't exist)
+   Button icons
    ------------------------------------------------- */
 
 #airports-btn {
-    -fx-graphic: url("/launcher/stylet.png");
+    -fx-graphic: url("/launcher/airport.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #seat-reservation-btn {
-    -fx-graphic: url("/launcher/styleng");
+    -fx-graphic: url("/launcher/seat.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #flight-schedule-btn {
-    -fx-graphic: url("/launcher/style.png");
+    -fx-graphic: url("/launcher/.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #aircraft-btn {
-    -fx-graphic: url("/launcher/stylene.png");
+    -fx-graphic: url("/launcher/airplane.png");
     -fx-graphic-text-gap: 10px;
 }

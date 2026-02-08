@@ -11,7 +11,7 @@
           padding="20">
 
     <!-- Top-left button -->
-    <Button fx:id="airports-btn"
+    <Button fx:id="airport-btn"
             text="Airports"
             GridPane.rowIndex="0"
             GridPane.columnIndex="0"
@@ -19,7 +19,7 @@
             minHeight="80"/>
 
     <!-- Top-right button -->
-    <Button fx:id="seat-reservation-btn"
+    <Button fx:id="seat-btn"
             text="Seat Reservation"
             GridPane.rowIndex="0"
             GridPane.columnIndex="1"
@@ -27,7 +27,7 @@
             minHeight="80"/>
 
     <!-- Bottom-left button -->
-    <Button fx:id="flight-schedule-btn"
+    <Button fx:id="flight-btn"
             text="Flight Schedule"
             GridPane.rowIndex="1"
             GridPane.columnIndex="0"
@@ -35,7 +35,7 @@
             minHeight="80"/>
 
     <!-- Bottom-right button -->
-    <Button fx:id="aircraft-btn"
+    <Button fx:id="airplane-btn"
             text="Aircraft"
             GridPane.rowIndex="1"
             GridPane.columnIndex="1"
