@@ -48,21 +48,21 @@
    ------------------------------------------------- */
 
 #airports-btn {
-    -fx-graphic: url("/launcher/airport.png");
+    -fx-graphic: url("/launcher/icons/airport.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #seat-reservation-btn {
-    -fx-graphic: url("/launcher/seat.png");
+    -fx-graphic: url("/launcher/icons/seat.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #flight-schedule-btn {
-    -fx-graphic: url("/launcher/.png");
+    -fx-graphic: url("/launcher/icons/schedule.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #aircraft-btn {
-    -fx-graphic: url("/launcher/airplane.png");
+    -fx-graphic: url("/launcher/icons/plane.png");
     -fx-graphic-text-gap: 10px;
 }
