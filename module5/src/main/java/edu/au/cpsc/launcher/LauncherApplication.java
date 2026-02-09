@@ -19,9 +19,8 @@ public class LauncherApplication extends Application {
         Parent root = loader.load();
 
         Scene scene = new Scene(root);
-
         scene.getStylesheets().add(
-                getClass().getResource("/style/main.css").toExternalForm()
+                getClass().getResource("/launcher/style/main.css").toExternalForm()
         );
 
         primaryStage.setTitle("Christopher Boartfield's Application");
