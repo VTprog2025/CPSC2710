@@ -16,15 +16,13 @@ Description: Project5 controller.
 public class Part1Application extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new
-                FXMLLoader(Part1Application.class.getResource("../../../../../resources/part1.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                getClass().getResource("/miscstyle/part1.fxml")
+        );
+
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Christopher Boartfields Flight App");
+        stage.setTitle("Christopher Boartfield's Flight App");
         stage.setScene(scene);
         stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch();
     }
 }
