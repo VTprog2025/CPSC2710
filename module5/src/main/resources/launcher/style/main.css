@@ -1,32 +1,35 @@
-/* GridPane root */
+/* GridPane background with logo */
 .grid-pane {
-    -fx-background-color: #f0f0f0;
-    -fx-padding: 20;
+    -fx-background-color: transparent;
+    -fx-background-image: url("/launcher/icons/logo.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
     -fx-hgap: 20;
     -fx-vgap: 20;
+    -fx-padding: 20;
 }
 
-/* Buttons */
+/* Buttons with partial opacity */
 #airportsBtn,
 #seatReservationBtn,
 #flightScheduleBtn,
 #aircraftBtn {
     -fx-font-family: 'Roboto';
-    -fx-font-size: 16px;
-    -fx-min-width: 150px;
-    -fx-min-height: 100px;
+    -fx-font-size: 14px; /* slightly smaller so text fits */
+    -fx-pref-width: 150px;
+    -fx-pref-height: 100px;
     -fx-background-radius: 10;
     -fx-border-radius: 10;
     -fx-border-color: #272838;
     -fx-border-width: 2;
-    -fx-opacity: 0.9;
-    -fx-graphic-text-gap: 10px;
+    -fx-opacity: 0.85; /* partially transparent buttons */
 }
 
-/* Top two buttons use larger font */
+/* Top buttons use larger font */
 #airportsBtn,
 #seatReservationBtn {
-    -fx-font-size: 18px;
+    -fx-font-size: 16px;
 }
 
 /* Hover effect */
@@ -36,4 +39,25 @@
 #aircraftBtn:hover {
     -fx-background-color: #ff6b6b;
     -fx-text-fill: white;
+}
+
+/* Button icons */
+#airportsBtn {
+    -fx-graphic: url("/launcher/icons/airport.png");
+    -fx-graphic-text-gap: 10px;
+}
+
+#seatReservationBtn {
+    -fx-graphic: url("/launcher/icons/seat.png");
+    -fx-graphic-text-gap: 10px;
+}
+
+#flightScheduleBtn {
+    -fx-graphic: url("/launcher/icons/schedule.png");
+    -fx-graphic-text-gap: 10px;
+}
+
+#aircraftBtn {
+    -fx-graphic: url("/launcher/icons/plane.png");
+    -fx-graphic-text-gap: 10px;
 }
