@@ -17,13 +17,17 @@ public class Part1Application extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        // Use absolute path from resources root
         FXMLLoader fxmlLoader = new FXMLLoader(
-                getClass().getResource("/part1.fxml")
+                getClass().getResource("/edu/au/cpsc/miscstyle/part1.fxml")
         );
 
+
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Christopher Boartfields Flight App");
+
+        // Attach CSS explicitly here
+        scene.getStylesheets().add(getClass().getResource("/edu/au/cpsc/miscstyle/style/main.css").toExternalForm());
+
+        stage.setTitle("Christopher Boartfield's Flight Designator App");
         stage.setScene(scene);
         stage.show();
     }

@@ -1,4 +1,4 @@
-module edu.au.cpsc.launcher {
+module edu.au.cpsc.launcher{
     requires javafx.controls;
     requires javafx.fxml;
 

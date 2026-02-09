@@ -1,6 +1,4 @@
 package edu.au.cpsc.miscstyle;
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 
 /*
 * Project: project5
@@ -10,4 +8,5 @@ import javafx.scene.control.Label;
 * Description: Project5 controller.
  */
 public class Part1Controller {
+
 }
