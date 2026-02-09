@@ -10,16 +10,19 @@
 #airportsBtn,
 #seatReservationBtn,
 #flightScheduleBtn,
-#aircraftBtn{
-    -fx-font-family: 'Roboto'; /* replace with your font */
+#aircraftBtn {
+    -fx-font-family: 'Roboto';
     -fx-font-size: 16px;
-    -fx-pref-width: 150px;
-    -fx-pref-height: 100px;
+    -fx-min-width: 150px;
+    -fx-min-height: 100px;
+    -fx-max-width: 150px;
+    -fx-max-height: 100px;
     -fx-background-radius: 10;
     -fx-border-radius: 10;
     -fx-border-color: #272838;
     -fx-border-width: 2;
-    -fx-opacity: 0.9;
+    -fx-opacity: 0.85;
+    -fx-graphic-text-gap: 10px;
 }
 
 /* Top two buttons use larger font */
@@ -35,28 +38,4 @@
 #aircraftBtn:hover {
     -fx-background-color: #ff6b6b;
     -fx-text-fill: white;
-}
-
-/* Button icons */
-#airportsBtn {
-    -fx-graphic: url("/launcher/icons/airport.png");
-    -fx-graphic-text-gap: 10px;
-}
-
-#seatReservationBtn {
-    -fx-graphic: url("/launcher/icons/seat.png");
-    -fx-graphic-text-gap: 10px;
-}
-
-#flightScheduleBtn {
-    -fx-graphic: url("/launcher/icons/schedule.png");
-    -fx-graphic-text-gap: 10px;
-}
-
-#aircraftBtn {
-    -fx-graphic: url("/launcher/icons/plane.png");
-    -fx-graphic-text-gap: 10px;
-}
-#airportsBtn {
-    -fx-background-color: red;
 }
