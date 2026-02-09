@@ -25,7 +25,7 @@ public class Part1Application extends Application {
         // Load CSS from resource folder
         scene.getStylesheets().add(getClass().getResource("/edu/au/cpsc/miscstyle/main.css").toExternalForm());
 
-        primaryStage.setTitle("YourName YourLastName's Flight Designator App");
+        primaryStage.setTitle("Christopher Boartfield's Flight Designator App");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
