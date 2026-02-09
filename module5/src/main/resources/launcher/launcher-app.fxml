@@ -25,7 +25,7 @@
             minWidth="150"
             minHeight="100">
         <graphic>
-            <ImageView fitWidth="40" fitHeight="40" preserveRatio="true">
+            <ImageView fitWidth="45" fitHeight="45" preserveRatio="true">
                 <image>
                     <Image url="@icons/airport.png"/>
                 </image>

@@ -30,7 +30,7 @@
 #seatReservationBtn,
 #flightScheduleBtn,
 #aircraftBtn {
-    -fx-font-size: 12px;
+    -fx-font-size: 11px;
 }
 
 /* Hover effect for all buttons */
