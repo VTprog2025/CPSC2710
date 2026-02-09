@@ -27,9 +27,9 @@
 
 /* Top two buttons with slightly larger font */
 #airportsBtn,
-#seatReservationBtn
-#flightScheduleBtn
-#aircraftBtn{
+#seatReservationBtn,
+#flightScheduleBtn,
+#aircraftBtn {
     -fx-font-size: 12px;
 }
 
