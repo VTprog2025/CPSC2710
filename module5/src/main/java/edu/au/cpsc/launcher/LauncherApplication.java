@@ -17,7 +17,7 @@ public class LauncherApplication extends Application {
         Parent root = loader.load();
 
         Scene scene = new Scene(root);
-        primaryStage.setTitle("Launcher App");
+        primaryStage.setTitle("Christopher Boartfield's Application");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
