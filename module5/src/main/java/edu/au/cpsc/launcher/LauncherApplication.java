@@ -6,8 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.Objects;
-
 public class LauncherApplication extends Application {
 
     @Override
@@ -25,6 +23,8 @@ public class LauncherApplication extends Application {
 
         primaryStage.setTitle("Christopher Boartfield's Application");
         primaryStage.setScene(scene);
+        // Optional: make Stage size fit exactly to content (overrides manual size if smaller)
+        primaryStage.sizeToScene();
         primaryStage.show();
     }
 

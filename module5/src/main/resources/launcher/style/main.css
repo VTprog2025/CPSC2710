@@ -1,6 +1,6 @@
-/* GridPane background with logo */
+/* GridPane background with optional logo */
 .grid-pane {
-    -fx-background-color: transparent;
+    -fx-background-color: #f0f0f0; /* light gray background */
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -14,24 +14,24 @@
 #seatReservationBtn,
 #flightScheduleBtn,
 #aircraftBtn {
-    -fx-font-family: 'Roboto';
-    -fx-font-size: 14px; /* slightly smaller so text fits */
+    -fx-font-family: 'Roboto'; /* downloaded font */
+    -fx-font-size: 14px;       /* slightly smaller text */
     -fx-pref-width: 150px;
     -fx-pref-height: 100px;
     -fx-background-radius: 10;
     -fx-border-radius: 10;
     -fx-border-color: #272838;
     -fx-border-width: 2;
-    -fx-opacity: 0.85; /* partially transparent buttons */
+    -fx-opacity: 0.85;         /* partially transparent buttons */
 }
 
-/* Top buttons use larger font */
+/* Top two buttons with slightly larger font */
 #airportsBtn,
 #seatReservationBtn {
-    -fx-font-size: 16px;
+    -fx-font-size: 9px;
 }
 
-/* Hover effect */
+/* Hover effect for all buttons */
 #airportsBtn:hover,
 #seatReservationBtn:hover,
 #flightScheduleBtn:hover,
@@ -40,23 +40,5 @@
     -fx-text-fill: white;
 }
 
-/* Button icons */
-#airportsBtn {
-    -fx-graphic: url("icons/airport.png");
-    -fx-graphic-text-gap: 10px;
-}
-
-#seatReservationBtn {
-    -fx-graphic: url("icons/seat.png");
-    -fx-graphic-text-gap: 10px;
-}
-
-#flightScheduleBtn {
-    -fx-graphic: url("icons/flight.png");
-    -fx-graphic-text-gap: 10px;
-}
-
-#aircraftBtn {
-    -fx-graphic: url("icons/airplane.png");
-    -fx-graphic-text-gap: 10px;
-}
+/* --- REMOVE ALL -fx-graphic LINES --- */
+/* Icons will now be defined in FXML using ImageView, not CSS */
