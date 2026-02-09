@@ -9,7 +9,8 @@
           fx:controller="edu.au.cpsc.launcher.LauncherController"
           styleClass="grid-pane"
           hgap="20"
-          vgap="20">
+          vgap="20"
+          stylesheets="@style/main.css">
 
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
