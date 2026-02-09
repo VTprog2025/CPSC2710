@@ -39,21 +39,21 @@
 
 /* Button icons */
 #airports-btn {
-    -fx-graphic: url("/edu/au/cpsc/launcher/icons/airport.png");
+    -fx-graphic: url("launcher/icons/airport.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #seat-reservation-btn {
-    -fx-graphic: url("/edu/au/cpsc/launcher/icons/seat.png");
+    -fx-graphic: url("launcher/icons/seat.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #flight-schedule-btn {
-    -fx-graphic: url("/edu/au/cpsc/launcher/icons/schedule.png");
+    -fx-graphic: url("launcher/icons/schedule.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #aircraft-btn {
-    -fx-graphic: url("/edu/au/cpsc/launcher/icons/plane.png");
+    -fx-graphic: url("launcher/icons/plane.png");
     -fx-graphic-text-gap: 10px;
 }
