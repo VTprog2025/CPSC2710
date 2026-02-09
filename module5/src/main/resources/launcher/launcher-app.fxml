@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.geometry.Insets?>
 
-<?import javafx.scene.image.Image?>
 <GridPane xmlns="http://javafx.com/javafx/21"
           xmlns:fx="http://javafx.com/fxml/1"
           fx:controller="edu.au.cpsc.launcher.LauncherController"
@@ -12,6 +13,7 @@
           hgap="20"
           vgap="20">
 
+    <!-- Padding for the GridPane -->
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
@@ -20,7 +22,9 @@
     <Button fx:id="airportsBtn"
             text="Airports"
             GridPane.rowIndex="0"
-            GridPane.columnIndex="0">
+            GridPane.columnIndex="0"
+            minWidth="150"
+            minHeight="100">
         <graphic>
             <ImageView>
                 <Image url="@icons/airport.png"/>
@@ -32,7 +36,9 @@
     <Button fx:id="seatReservationBtn"
             text="Seat Reservation"
             GridPane.rowIndex="0"
-            GridPane.columnIndex="1">
+            GridPane.columnIndex="1"
+            minWidth="150"
+            minHeight="100">
         <graphic>
             <ImageView>
                 <Image url="@icons/seat.png"/>
@@ -44,7 +50,9 @@
     <Button fx:id="flightScheduleBtn"
             text="Flight Schedule"
             GridPane.rowIndex="1"
-            GridPane.columnIndex="0">
+            GridPane.columnIndex="0"
+            minWidth="150"
+            minHeight="100">
         <graphic>
             <ImageView>
                 <Image url="@icons/schedule.png"/>
@@ -56,7 +64,9 @@
     <Button fx:id="aircraftBtn"
             text="Aircraft"
             GridPane.rowIndex="1"
-            GridPane.columnIndex="1">
+            GridPane.columnIndex="1"
+            minWidth="150"
+            minHeight="100">
         <graphic>
             <ImageView>
                 <Image url="@icons/plane.png"/>
