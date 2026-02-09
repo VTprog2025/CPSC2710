@@ -14,15 +14,21 @@ Description: Project5 controller.
  */
 
 public class Part1Application extends Application {
+
     @Override
     public void start(Stage stage) throws IOException {
+        // Use absolute path from resources root
         FXMLLoader fxmlLoader = new FXMLLoader(
-                getClass().getResource("/miscstyle/part1.fxml")
+                getClass().getResource("/part1.fxml")
         );
 
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Christopher Boartfield's Flight App");
+        stage.setTitle("Christopher Boartfields Flight App");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
     }
 }
