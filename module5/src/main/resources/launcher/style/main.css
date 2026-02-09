@@ -57,3 +57,6 @@
     -fx-graphic: url("/launcher/icons/plane.png");
     -fx-graphic-text-gap: 10px;
 }
+#airportsBtn {
+    -fx-background-color: red;
+}
