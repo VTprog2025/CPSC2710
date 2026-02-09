@@ -27,8 +27,10 @@
 
 /* Top two buttons with slightly larger font */
 #airportsBtn,
-#seatReservationBtn {
-    -fx-font-size: 9px;
+#seatReservationBtn
+#flightScheduleBtn
+#aircraftBtn{
+    -fx-font-size: 12px;
 }
 
 /* Hover effect for all buttons */
