@@ -39,21 +39,21 @@
 
 /* Button icons */
 #airportsBtn {
-    -fx-graphic: url("launcher/icons/airport.png");
+    -fx-graphic: url("/launcher/icons/airport.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #seatReservationBtn {
-    -fx-graphic: url("launcher/icons/seat.png");
+    -fx-graphic: url("/launcher/icons/seat.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #flightScheduleBtn {
-    -fx-graphic: url("launcher/icons/schedule.png");
+    -fx-graphic: url("/launcher/icons/schedule.png");
     -fx-graphic-text-gap: 10px;
 }
 
 #aircraftBtn {
-    -fx-graphic: url("launcher/icons/plane.png");
+    -fx-graphic: url("/launcher/icons/plane.png");
     -fx-graphic-text-gap: 10px;
 }
