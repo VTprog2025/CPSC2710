@@ -6,6 +6,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+/*
+ * Project 6
+ * Christopher Boartfield
+ * clb0214@auburn.edu
+ * 2-13-2026
+ * Controller for Part1 Project 6.
+ */
 
 public class Part1Application extends Application {
 

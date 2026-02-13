@@ -8,6 +8,14 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
+/*
+* Project 6
+* Christopher Boartfield
+* clb0214@auburn.edu
+* 2-13-2026
+* Controller for Part1 Project 6.
+ */
+
 public class Part1Controller {
 
     @FXML
