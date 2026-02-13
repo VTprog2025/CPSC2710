@@ -20,7 +20,7 @@ public class Part1Application extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Part1Application.class.getResource("part1-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Part 1");
+        stage.setTitle("Christopher Boartfield's part1 App");
         stage.setScene(scene);
         stage.show();
     }
