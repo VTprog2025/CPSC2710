@@ -11,7 +11,7 @@ public class FlightScheduleApplication extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(FlightScheduleApplication.class.getResource("flight-schedule-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
-        stage.setTitle("Christopher Boartfield's Flight Schedule Application");
+        stage.setTitle("Christopher Boartfield's Flight Schedule Application V2");
         stage.setScene(scene);
         stage.show();
     }
