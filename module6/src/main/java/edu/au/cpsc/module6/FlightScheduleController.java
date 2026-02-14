@@ -26,6 +26,8 @@ public class FlightScheduleController {
     private AirlineDatabase database = new AirlineDatabase();
     private static final String DATABASE_FILE = "airlineDatabase.dat";
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
+    private final FlightEditorModel model = new FlightEditorModel();
+
 
     // Table and columns
     @FXML private TableView<ScheduledFlight> flightTable;
@@ -59,6 +61,12 @@ public class FlightScheduleController {
 
     @FXML
     public void initialize() {
+        flightField.textProperty().bindBidirectional(model.flightDesignatorProperty());
+        depField.textProperty().bindBidirectional(model.departureProperty());
+        arrField.textProperty().bindBidirectional(model.arrivalProperty());
+        depTimeField.textProperty().bindBidirectional(model.depTimeProperty());
+        arrTimeField.textProperty().bindBidirectional(model.arrTimeProperty());
+
         setupTable();
         setupButtons();
         loadDatabase();

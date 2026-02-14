@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2e4783e-8733-4abf-96df-2eeba725f2d0" name="Changes" comment="reworked loadDatabase to help save data after app closes per TA review.">
+    <list default="true" id="e2e4783e-8733-4abf-96df-2eeba725f2d0" name="Changes" comment="fixing call method of ScheduledFlight.java to handle new part2-view.fxml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +45,9 @@
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -89,7 +92,7 @@
       <updated>1771023793181</updated>
       <workItem from="1771023795685" duration="2078000" />
       <workItem from="1771090922815" duration="11000" />
-      <workItem from="1771091025790" duration="1400000" />
+      <workItem from="1771091025790" duration="2345000" />
     </task>
     <task id="LOCAL-00001" summary="New commit">
       <option name="closed" value="true" />
@@ -187,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771092091394</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fixing call method of ScheduledFlight.java to handle new part2-view.fxml">
+      <option name="closed" value="true" />
+      <created>1771094813410</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1771094813410</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +212,8 @@
     <MESSAGE value="modified" />
     <MESSAGE value="modified Controller to only private to help store data after app is closed." />
     <MESSAGE value="reworked loadDatabase to help save data after app closes per TA review." />
-    <option name="LAST_COMMIT_MESSAGE" value="reworked loadDatabase to help save data after app closes per TA review." />
+    <MESSAGE value="fixing call method of ScheduledFlight.java to handle new part2-view.fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing call method of ScheduledFlight.java to handle new part2-view.fxml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -209,6 +221,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.reflect.InvocationTargetException" package="java.lang.reflect" />
+          <option name="timeStamp" value="2" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
