@@ -23,7 +23,7 @@ import java.util.HashSet;
  */
 public class FlightScheduleController {
 
-    private final AirlineDatabase database = new AirlineDatabase();
+    private AirlineDatabase database = new AirlineDatabase();
     private static final String DATABASE_FILE = "airlineDatabase.dat";
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
 
