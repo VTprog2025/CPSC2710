@@ -211,11 +211,11 @@ public class FlightScheduleController {
 
     private void loadDatabase() {
         try (FileInputStream fis = new FileInputStream(DATABASE_FILE)) {
-            AirlineDatabase loadedDb = AirlineDatabaseIO.load(fis);
-            database.getScheduledFlights().addAll(loadedDb.getScheduledFlights());
+            database = AirlineDatabaseIO.load(fis);
             flightTable.getItems().addAll(database.getScheduledFlights());
         } catch (Exception e) {
             System.out.println("No database found, starting with an empty database.");
         }
     }
+
 }
