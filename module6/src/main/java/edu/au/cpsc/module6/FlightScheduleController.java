@@ -15,10 +15,10 @@ import java.time.format.DateTimeParseException;
 import java.util.HashSet;
 
 /*
- * Project: project4
+ * Project: project6
  * Author: Christopher
  * Auburn Email: clb0214@auburn.edu
- * Date: 2026-01-31
+ * Date: 2026-02-14
  * Description: Controller for the Flight Designator App. Handles table, editor, and database I/O.
  */
 public class FlightScheduleController {

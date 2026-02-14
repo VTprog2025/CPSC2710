@@ -5,6 +5,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/*
+ * Project: project6
+ * Author: Christopher
+ * Auburn Email: clb0214@auburn.edu
+ * Date: 2026-02-14
+ * Description: Flight Designator App.
+ */
+
 public class FlightScheduleApplication extends Application {
 
     @Override
