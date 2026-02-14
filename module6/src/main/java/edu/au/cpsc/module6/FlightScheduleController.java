@@ -1,5 +1,6 @@
 package edu.au.cpsc.module6;
 
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -19,15 +20,15 @@ import java.util.HashSet;
  * Author: Christopher
  * Auburn Email: clb0214@auburn.edu
  * Date: 2026-02-14
- * Description: Controller for the Flight Designator App. Handles table, editor, and database I/O.
+ * Description: Controller for the Flight Designator App. Handles table, editor, validation, and database I/O.
  */
 public class FlightScheduleController {
 
     private AirlineDatabase database = new AirlineDatabase();
     private static final String DATABASE_FILE = "airlineDatabase.dat";
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
-    private final FlightEditorModel model = new FlightEditorModel();
 
+    private final FlightEditorModel model = new FlightEditorModel();
 
     // Table and columns
     @FXML private TableView<ScheduledFlight> flightTable;
@@ -61,44 +62,59 @@ public class FlightScheduleController {
 
     @FXML
     public void initialize() {
+        // -------------------------
+        // Bind text fields to model
+        // -------------------------
         flightField.textProperty().bindBidirectional(model.flightDesignatorProperty());
         depField.textProperty().bindBidirectional(model.departureProperty());
         arrField.textProperty().bindBidirectional(model.arrivalProperty());
         depTimeField.textProperty().bindBidirectional(model.depTimeProperty());
         arrTimeField.textProperty().bindBidirectional(model.arrTimeProperty());
 
+        // -------------------------
+        // Highlight invalid fields
+        // -------------------------
+        flightField.styleProperty().bind(
+                Bindings.when(model.flightValidProperty())
+                        .then("-fx-border-color: none;")
+                        .otherwise("-fx-border-color: red;")
+        );
+        depField.styleProperty().bind(
+                Bindings.when(model.depValidProperty())
+                        .then("-fx-border-color: none;")
+                        .otherwise("-fx-border-color: red;")
+        );
+        arrField.styleProperty().bind(
+                Bindings.when(model.arrValidProperty())
+                        .then("-fx-border-color: none;")
+                        .otherwise("-fx-border-color: red;")
+        );
+        depTimeField.styleProperty().bind(
+                Bindings.when(model.depTimeValidProperty())
+                        .then("-fx-border-color: none;")
+                        .otherwise("-fx-border-color: red;")
+        );
+        arrTimeField.styleProperty().bind(
+                Bindings.when(model.arrTimeValidProperty())
+                        .then("-fx-border-color: none;")
+                        .otherwise("-fx-border-color: red;")
+        );
+
+        // -------------------------
+        // Setup TableView
+        // -------------------------
         setupTable();
-        setupButtons();
-        loadDatabase();
-    }
 
-    private void setupTable() {
-        // Bind columns to ScheduledFlight getters
-        designatorCol.setCellValueFactory(new PropertyValueFactory<>("flightDesignator"));
-        departureCol.setCellValueFactory(new PropertyValueFactory<>("departureAirportIdent"));
-        arrivalCol.setCellValueFactory(new PropertyValueFactory<>("arrivalAirportIdent"));
+        // -------------------------
+        // Bind buttons to state
+        // -------------------------
+        addUpdateBtn.disableProperty().bind(model.allValidProperty().not());
+        deleteBtn.disableProperty().bind(flightTable.getSelectionModel().selectedItemProperty().isNull());
+        newBtn.disableProperty().bind(flightTable.getSelectionModel().selectedItemProperty().isNotNull());
 
-        // Format LocalTime columns as HH:mm
-        depTimeCol.setCellValueFactory(data ->
-                new SimpleStringProperty(data.getValue().getDepartureTime().format(TIME_FORMATTER))
-        );
-        arrTimeCol.setCellValueFactory(data ->
-                new SimpleStringProperty(data.getValue().getArrivalTime().format(TIME_FORMATTER))
-        );
-
-        // Days as single-character string
-        daysCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getDaysString()));
-
-        // Listen for selection changes to populate editor
-        flightTable.getSelectionModel().selectedItemProperty().addListener((_, _, newSel) -> {
-            if (newSel != null) populateEditor(newSel);
-        });
-
-        // Populate table initially
-        flightTable.getItems().addAll(database.getScheduledFlights());
-    }
-
-    private void setupButtons() {
+        // -------------------------
+        // Button actions
+        // -------------------------
         newBtn.setOnAction(_ -> clearEditor());
 
         addUpdateBtn.setOnAction(_ -> {
@@ -128,6 +144,30 @@ public class FlightScheduleController {
                 saveDatabase();
                 clearEditor();
             }
+        });
+
+        // -------------------------
+        // Load database
+        // -------------------------
+        loadDatabase();
+    }
+
+    private void setupTable() {
+        designatorCol.setCellValueFactory(new PropertyValueFactory<>("flightDesignator"));
+        departureCol.setCellValueFactory(new PropertyValueFactory<>("departureAirportIdent"));
+        arrivalCol.setCellValueFactory(new PropertyValueFactory<>("arrivalAirportIdent"));
+
+        depTimeCol.setCellValueFactory(data ->
+                new SimpleStringProperty(data.getValue().getDepartureTime().format(TIME_FORMATTER))
+        );
+        arrTimeCol.setCellValueFactory(data ->
+                new SimpleStringProperty(data.getValue().getArrivalTime().format(TIME_FORMATTER))
+        );
+
+        daysCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getDaysString()));
+
+        flightTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> {
+            if (newSel != null) populateEditor(newSel);
         });
     }
 
@@ -225,5 +265,4 @@ public class FlightScheduleController {
             System.out.println("No database found, starting with an empty database.");
         }
     }
-
 }

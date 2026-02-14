@@ -1,6 +1,8 @@
 package edu.au.cpsc.module6;
 
-import javafx.beans.property.Property;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
+import javafx.beans.property.*;
 
 public class FlightEditorModel {
 
