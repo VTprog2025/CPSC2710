@@ -6,10 +6,10 @@ import java.time.LocalTime;
 import java.util.HashSet;
 
 /*
- * Project: project4
+ * Project: project6
  * Author: Christopher
  * Auburn Email: clb0214@auburn.edu
- * Date: 2026-01-31
+ * Date: 2026-02-14
  * Description: Represents a scheduled flight with departure/arrival info and days of operation.
  * Includes per-field validation to catch null inputs with descriptive messages.
  */

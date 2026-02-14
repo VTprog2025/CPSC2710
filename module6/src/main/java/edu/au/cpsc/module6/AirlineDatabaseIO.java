@@ -14,26 +14,26 @@ import java.io.*;
 public class AirlineDatabaseIO {
 
     // Save the AirlineDatabase to an OutputStream
-    public static void save(AirlineDatabase ad, OutputStream strm) throws IOException {
+    public static void save(AirlineDatabase ad, OutputStream stream) throws IOException {
         // Null check
-        if (ad == null || strm == null) {
+        if (ad == null || stream == null) {
             throw new IllegalArgumentException("Arguments cannot be null");
         }
 
-        try (ObjectOutputStream oos = new ObjectOutputStream(strm)) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(stream)) {
             oos.writeObject(ad);
             oos.flush();
         }
     }
 
     // Load the AirlineDatabase from an InputStream
-    public static AirlineDatabase load(InputStream strm) throws IOException, ClassNotFoundException {
+    public static AirlineDatabase load(InputStream stream) throws IOException, ClassNotFoundException {
         // Null check
-        if (strm == null) {
+        if (stream == null) {
             throw new IllegalArgumentException("InputStream cannot be null");
         }
 
-        try (ObjectInputStream ois = new ObjectInputStream(strm)) {
+        try (ObjectInputStream ois = new ObjectInputStream(stream)) {
             return (AirlineDatabase) ois.readObject();
         }
     }
