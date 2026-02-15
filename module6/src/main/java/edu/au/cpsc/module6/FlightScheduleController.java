@@ -250,7 +250,7 @@ public class FlightScheduleController {
         alert.showAndWait();
     }
 
-    private void saveDatabase() {
+    public void saveDatabase() {
         try {
             File dbFile = new File(DATABASE_FILE);
             File parent = dbFile.getParentFile();

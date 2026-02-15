@@ -15,18 +15,39 @@ import javafx.stage.Stage;
 
 public class FlightScheduleApplication extends Application {
 
+    // Keep a reference to the controller so we can save the database on exit
+    private FlightScheduleController flightController;
+
     @Override
     public void start(Stage stage) throws Exception {
+        // Load the FXML
         FXMLLoader fxmlLoader =
                 new FXMLLoader(FlightScheduleApplication.class.getResource("part2-view.fxml"));
 
+        // Load the scene
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
+
+        // Get the controller from the FXMLLoader
+        flightController = fxmlLoader.getController();
+
+        // Set up the stage
         stage.setTitle("Christopher Boartfield's Flight Schedule Application V2");
         stage.setScene(scene);
         stage.show();
     }
 
+    @Override
+    public void stop() throws Exception {
+        // This method is automatically called when the app closes
+        // Save the database so changes persist across runs
+        if (flightController != null) {
+            flightController.saveDatabase();
+        }
+        super.stop();
+    }
+
     static void main(String[] ignoredArgs) {
+        // Launch the JavaFX application
         launch();
     }
 }
