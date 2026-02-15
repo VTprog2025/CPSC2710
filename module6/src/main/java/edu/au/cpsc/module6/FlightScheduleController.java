@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -250,12 +251,25 @@ public class FlightScheduleController {
     }
 
     private void saveDatabase() {
-        try (FileOutputStream fos = new FileOutputStream(DATABASE_FILE)) {
-            AirlineDatabaseIO.save(database, fos);
+        try {
+            File dbFile = new File(DATABASE_FILE);
+            File parent = dbFile.getParentFile();
+            if (parent != null && !parent.exists()) {
+                boolean created = parent.mkdirs();
+                if (!created) {
+                    System.out.println("Warning: Could not create parent directories for database file");
+                }
+            }
+
+            try (FileOutputStream fos = new FileOutputStream(dbFile)) {
+                AirlineDatabaseIO.save(database, fos);
+            }
         } catch (IOException e) {
             showAlert("Failed to save database: " + e.getMessage());
         }
     }
+
+
 
     private void loadDatabase() {
         try (FileInputStream fis = new FileInputStream(DATABASE_FILE)) {
