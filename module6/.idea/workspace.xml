@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2e4783e-8733-4abf-96df-2eeba725f2d0" name="Changes" comment="messing with UI model">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/au/cpsc/module6/FlightEditorModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/au/cpsc/module6/FlightEditorModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/au/cpsc/module6/FlightScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/au/cpsc/module6/FlightScheduleController.java" afterDir="false" />
-    </list>
+    <list default="true" id="e2e4783e-8733-4abf-96df-2eeba725f2d0" name="Changes" comment="made changes to help functionality hopefully" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +90,7 @@
       <updated>1771023793181</updated>
       <workItem from="1771023795685" duration="2078000" />
       <workItem from="1771090922815" duration="11000" />
-      <workItem from="1771091025790" duration="3186000" />
+      <workItem from="1771091025790" duration="3267000" />
     </task>
     <task id="LOCAL-00001" summary="New commit">
       <option name="closed" value="true" />
@@ -208,7 +204,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771095660425</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="made changes to help functionality hopefully">
+      <option name="closed" value="true" />
+      <created>1771096336436</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1771096336436</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +228,8 @@
     <MESSAGE value="reworked loadDatabase to help save data after app closes per TA review." />
     <MESSAGE value="fixing call method of ScheduledFlight.java to handle new part2-view.fxml" />
     <MESSAGE value="messing with UI model" />
-    <option name="LAST_COMMIT_MESSAGE" value="messing with UI model" />
+    <MESSAGE value="made changes to help functionality hopefully" />
+    <option name="LAST_COMMIT_MESSAGE" value="made changes to help functionality hopefully" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
