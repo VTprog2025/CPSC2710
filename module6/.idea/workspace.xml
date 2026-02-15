@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2e4783e-8733-4abf-96df-2eeba725f2d0" name="Changes" comment="made changes to help functionality hopefully" />
+    <list default="true" id="e2e4783e-8733-4abf-96df-2eeba725f2d0" name="Changes" comment="keeps wanting me to commit this workspace file" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,6 +58,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.FlightScheduleApplication.executor": "Run",
+    "Application.Part1Application.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -91,6 +92,7 @@
       <workItem from="1771023795685" duration="2078000" />
       <workItem from="1771090922815" duration="11000" />
       <workItem from="1771091025790" duration="3302000" />
+      <workItem from="1771170326580" duration="291000" />
     </task>
     <task id="LOCAL-00001" summary="New commit">
       <option name="closed" value="true" />
@@ -220,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771167232091</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="keeps wanting me to commit this workspace file">
+      <option name="closed" value="true" />
+      <created>1771170405765</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1771170405766</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +247,8 @@
     <MESSAGE value="fixing call method of ScheduledFlight.java to handle new part2-view.fxml" />
     <MESSAGE value="messing with UI model" />
     <MESSAGE value="made changes to help functionality hopefully" />
-    <option name="LAST_COMMIT_MESSAGE" value="made changes to help functionality hopefully" />
+    <MESSAGE value="keeps wanting me to commit this workspace file" />
+    <option name="LAST_COMMIT_MESSAGE" value="keeps wanting me to commit this workspace file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
