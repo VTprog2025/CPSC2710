@@ -18,7 +18,7 @@ public class Part1Application extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Part1Application.class.getResource("part1-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Part1Application.class.getResource("/resources/part1-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Christopher Boartfield's part1 App");
         stage.setScene(scene);
