@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2e4783e-8733-4abf-96df-2eeba725f2d0" name="Changes" comment="keeps wanting me to commit this workspace file">
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/au/cpsc/module6/part2-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/au/cpsc/module6/part2-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/au/cpsc/part1/Part1Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/au/cpsc/part1/Part1Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/au/cpsc/part1/part1-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/part1-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/au/cpsc/module6/hello-view.fxml" beforeDir="false" />
+    <list default="true" id="e2e4783e-8733-4abf-96df-2eeba725f2d0" name="Changes" comment="changed fxml launcher">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/au/cpsc/module6/FlightScheduleApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/au/cpsc/module6/FlightScheduleApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +77,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\guita\OneDrive\Documents\CPSC2710\module6\src\main\resources" />
+      <recent name="C:\Users\guita\OneDrive\Documents\CPSC2710\module6\src\main\resources\edu\au\cpsc\module6" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -97,7 +101,7 @@
       <workItem from="1771023795685" duration="2078000" />
       <workItem from="1771090922815" duration="11000" />
       <workItem from="1771091025790" duration="3302000" />
-      <workItem from="1771170326580" duration="608000" />
+      <workItem from="1771170326580" duration="1232000" />
     </task>
     <task id="LOCAL-00001" summary="New commit">
       <option name="closed" value="true" />
@@ -243,7 +247,31 @@
       <option name="project" value="LOCAL" />
       <updated>1771170719306</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="modified and safely deleted a main file">
+      <option name="closed" value="true" />
+      <created>1771170968087</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1771170968087</updated>
+    </task>
+    <task id="LOCAL-00020" summary="modified and safely deleted a main file">
+      <option name="closed" value="true" />
+      <created>1771170977555</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1771170977555</updated>
+    </task>
+    <task id="LOCAL-00021" summary="changed fxml launcher">
+      <option name="closed" value="true" />
+      <created>1771171091678</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1771171091678</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,7 +289,9 @@
     <MESSAGE value="messing with UI model" />
     <MESSAGE value="made changes to help functionality hopefully" />
     <MESSAGE value="keeps wanting me to commit this workspace file" />
-    <option name="LAST_COMMIT_MESSAGE" value="keeps wanting me to commit this workspace file" />
+    <MESSAGE value="modified and safely deleted a main file" />
+    <MESSAGE value="changed fxml launcher" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed fxml launcher" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
