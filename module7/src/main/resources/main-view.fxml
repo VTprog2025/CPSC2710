@@ -1,74 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="edu.au.cpsc.module7.TaskManagerController"
-            prefHeight="500.0" prefWidth="750.0"
-            styleClass="root-pane">
+<BorderPane prefHeight="500.0" prefWidth="750.0" styleClass="root-pane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="edu.au.cpsc.module7.TaskManagerController">
 
     <top>
         <MenuBar>
             <Menu text="_File">
-                <MenuItem text="_New Task" onAction="#onAddTask"
-                          accelerator="Shortcut+N"/>
-                <MenuItem text="_Delete Task" onAction="#onDeleteTask"
-                          accelerator="Shortcut+D"/>
-                <SeparatorMenuItem/>
-                <MenuItem text="E_xit" onAction="#onExit"
-                          accelerator="Shortcut+Q"/>
+                <MenuItem accelerator="Shortcut+N" onAction="#onAddTask" text="_New Task" />
+                <MenuItem accelerator="Shortcut+D" onAction="#onDeleteTask" text="_Delete Task" />
+                <SeparatorMenuItem />
+                <MenuItem accelerator="Shortcut+Q" onAction="#onExit" text="E_xit" />
             </Menu>
             <Menu text="_Edit">
-                <MenuItem text="_Toggle Complete" onAction="#onMarkComplete"
-                          accelerator="Shortcut+M"/>
-                <MenuItem text="_Clear All" onAction="#onClearAll"/>
+                <MenuItem accelerator="Shortcut+M" onAction="#onMarkComplete" text="_Toggle Complete" />
+                <MenuItem onAction="#onClearAll" text="_Clear All" />
             </Menu>
             <Menu text="_Help">
-                <MenuItem text="_About" onAction="#onAbout"/>
+                <MenuItem onAction="#onAbout" text="_About" />
             </Menu>
         </MenuBar>
     </top>
 
     <center>
-        <TableView fx:id="taskTable" editable="true"
-                   BorderPane.alignment="CENTER">
+        <TableView fx:id="taskTable" editable="true" BorderPane.alignment="CENTER">
             <columns>
-                <TableColumn fx:id="completeColumn" text="Done"
-                             prefWidth="50" sortable="false"/>
-                <TableColumn fx:id="nameColumn" text="Task Name"
-                             prefWidth="250"/>
-                <TableColumn fx:id="priorityColumn" text="Priority"
-                             prefWidth="100"/>
-                <TableColumn fx:id="dueDateColumn" text="Due Date"
-                             prefWidth="120"/>
+                <TableColumn fx:id="completeColumn" prefWidth="82.00000250339508" sortable="false" text="Done" />
+                <TableColumn fx:id="nameColumn" prefWidth="218.00000762939453" text="Task Name" />
+                <TableColumn fx:id="priorityColumn" prefWidth="100" text="Priority" />
+                <TableColumn fx:id="dueDateColumn" prefWidth="120" text="Due Date" />
             </columns>
             <placeholder>
-                <Label text="No tasks yet. Click 'Add Task' to get started!"
-                       styleClass="placeholder-label"/>
+                <Label styleClass="placeholder-label" text="No tasks yet. Click 'Add Task' to get started!" />
             </placeholder>
         </TableView>
     </center>
 
     <bottom>
         <VBox spacing="10" styleClass="bottom-bar">
-            <padding><Insets top="10" right="15" bottom="10" left="15"/></padding>
-            <HBox spacing="10" alignment="CENTER_LEFT">
-                <Button text="Add Task" onAction="#onAddTask"
-                        styleClass="btn-primary"/>
-                <Button text="Delete Task" onAction="#onDeleteTask"
-                        styleClass="btn-danger"/>
-                <Button text="Toggle Complete" onAction="#onMarkComplete"
-                        styleClass="btn-secondary"/>
-                <Button text="Clear All" onAction="#onClearAll"
-                        styleClass="btn-secondary"/>
+            <padding><Insets bottom="10" left="15" right="15" top="10" /></padding>
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Button onAction="#onAddTask" styleClass="btn-primary" text="Add Task" />
+                <Button onAction="#onDeleteTask" styleClass="btn-danger" text="Delete Task" />
+                <Button onAction="#onMarkComplete" styleClass="btn-secondary" text="Toggle Complete" />
+                <Button onAction="#onClearAll" styleClass="btn-secondary" text="Clear All" />
             </HBox>
-            <Label fx:id="statusLabel" text="Tasks: 0  |  Completed: 0  |  Remaining: 0"
-                   styleClass="status-label"/>
+            <Label fx:id="statusLabel" styleClass="status-label" text="Tasks: 0  |  Completed: 0  |  Remaining: 0" />
         </VBox>
     </bottom>
 
