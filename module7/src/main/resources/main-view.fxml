@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="edu.au.cpsc.module7.TaskManagerController"
+            prefHeight="500.0" prefWidth="750.0"
+            styleClass="root-pane">
+
+    <top>
+        <MenuBar>
+            <Menu text="_File">
+                <MenuItem text="_New Task" onAction="#onAddTask"
+                          accelerator="Shortcut+N"/>
+                <MenuItem text="_Delete Task" onAction="#onDeleteTask"
+                          accelerator="Shortcut+D"/>
+                <SeparatorMenuItem/>
+                <MenuItem text="E_xit" onAction="#onExit"
+                          accelerator="Shortcut+Q"/>
+            </Menu>
+            <Menu text="_Edit">
+                <MenuItem text="_Toggle Complete" onAction="#onMarkComplete"
+                          accelerator="Shortcut+M"/>
+                <MenuItem text="_Clear All" onAction="#onClearAll"/>
+            </Menu>
+            <Menu text="_Help">
+                <MenuItem text="_About" onAction="#onAbout"/>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <center>
+        <TableView fx:id="taskTable" editable="true"
+                   BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="completeColumn" text="Done"
+                             prefWidth="50" sortable="false"/>
+                <TableColumn fx:id="nameColumn" text="Task Name"
+                             prefWidth="250"/>
+                <TableColumn fx:id="priorityColumn" text="Priority"
+                             prefWidth="100"/>
+                <TableColumn fx:id="dueDateColumn" text="Due Date"
+                             prefWidth="120"/>
+            </columns>
+            <placeholder>
+                <Label text="No tasks yet. Click 'Add Task' to get started!"
+                       styleClass="placeholder-label"/>
+            </placeholder>
+        </TableView>
+    </center>
+
+    <bottom>
+        <VBox spacing="10" styleClass="bottom-bar">
+            <padding><Insets top="10" right="15" bottom="10" left="15"/></padding>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button text="Add Task" onAction="#onAddTask"
+                        styleClass="btn-primary"/>
+                <Button text="Delete Task" onAction="#onDeleteTask"
+                        styleClass="btn-danger"/>
+                <Button text="Toggle Complete" onAction="#onMarkComplete"
+                        styleClass="btn-secondary"/>
+                <Button text="Clear All" onAction="#onClearAll"
+                        styleClass="btn-secondary"/>
+            </HBox>
+            <Label fx:id="statusLabel" text="Tasks: 0  |  Completed: 0  |  Remaining: 0"
+                   styleClass="status-label"/>
+        </VBox>
+    </bottom>
+
+</BorderPane>
