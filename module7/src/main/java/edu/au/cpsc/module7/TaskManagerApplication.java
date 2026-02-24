@@ -11,10 +11,10 @@ public class TaskManagerApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
-                TaskManagerApplication.class.getResource("/main-view.fxml"));
+                TaskManagerApplication.class.getResource("module7/main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 750, 500);
         scene.getStylesheets().add(
-                TaskManagerApplication.class.getResource("/styles.css").toExternalForm());
+                TaskManagerApplication.class.getResource("module7/styles.css").toExternalForm());
         stage.setTitle("Christopher Boartfields Task Manager");
         stage.setScene(scene);
         stage.show();
