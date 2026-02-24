@@ -1,5 +1,6 @@
 # Task Manager Application
 
+
 ## Inspiration
 I have ADHD, and keeping track of tasks and deadlines has always been a struggle for me. I often
 forget what I need to do, lose track of due dates, or feel overwhelmed by everything piling up.

@@ -4,8 +4,14 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.time.LocalDate;
+
+/*
+ * CPSC 2710 Final Project
+ * Christopher Boartfield
+ * 2-25-2026
+ * Add task controller since it makes sense to add tasks to the program.
+ */
 
 public class AddTaskController {
 

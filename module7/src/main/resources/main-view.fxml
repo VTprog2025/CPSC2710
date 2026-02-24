@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="edu.au.cpsc.module7.TaskManagerController"
             prefHeight="500.0" prefWidth="750.0"

@@ -9,8 +9,14 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.IOException;
+
+/*
+ * CPSC 2710 Final Project
+ * Christopher Boartfield
+ * 2-25-2026
+ * A task manager controller to help the functions of task.java
+ */
 
 public class TaskManagerController {
 

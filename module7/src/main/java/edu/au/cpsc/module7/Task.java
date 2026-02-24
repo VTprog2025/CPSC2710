@@ -12,6 +12,7 @@ import javafx.beans.property.StringProperty;
 * A task manager program to help the user remember and complete tasks.
  */
 
+
 public class Task {
     private final StringProperty name;
     private final StringProperty description;

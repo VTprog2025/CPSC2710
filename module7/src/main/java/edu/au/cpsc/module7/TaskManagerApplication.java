@@ -4,8 +4,14 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
+
+/*
+ * CPSC 2710 Final Project
+ * Christopher Boartfield
+ * 2-25-2026
+ * A task manager application program to help the user remember and complete tasks.
+ */
 
 public class TaskManagerApplication extends Application {
     @Override
