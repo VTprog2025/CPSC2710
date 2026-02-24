@@ -5,6 +5,13 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+/*
+* CPSC 2710 Final Project
+* Christopher Boartfield
+* 2-25-2026
+* A task manager program to help the user remember and complete tasks.
+ */
+
 public class Task {
     private final StringProperty name;
     private final StringProperty description;
@@ -20,23 +27,14 @@ public class Task {
         this.complete = new SimpleBooleanProperty(false);
     }
 
-    public String getName() { return name.get(); }
-    public void setName(String name) { this.name.set(name); }
+    // Property methods — used by TableView column bindings
     public StringProperty nameProperty() { return name; }
-
-    public String getDescription() { return description.get(); }
-    public void setDescription(String description) { this.description.set(description); }
     public StringProperty descriptionProperty() { return description; }
-
-    public String getPriority() { return priority.get(); }
-    public void setPriority(String priority) { this.priority.set(priority); }
     public StringProperty priorityProperty() { return priority; }
-
-    public String getDueDate() { return dueDate.get(); }
-    public void setDueDate(String dueDate) { this.dueDate.set(dueDate); }
     public StringProperty dueDateProperty() { return dueDate; }
+    public BooleanProperty completeProperty() { return complete; }
 
+    // Only the getter/setters that are actually called in code
     public boolean isComplete() { return complete.get(); }
     public void setComplete(boolean complete) { this.complete.set(complete); }
-    public BooleanProperty completeProperty() { return complete; }
 }
