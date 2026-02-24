@@ -21,7 +21,7 @@ public class TaskManagerApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 750, 500);
         scene.getStylesheets().add(
                 TaskManagerApplication.class.getResource("/style.css").toExternalForm());
-        stage.setTitle("Christopher Boartfields Task Manager");
+        stage.setTitle("Christopher Boartfield's Task Manager");
         stage.setScene(scene);
         stage.show();
     }
