@@ -70,4 +70,20 @@ tasks immediately, without a learning curve.
 | CheckBox | Done column (via CheckBoxTableCell) |
 
 ## Screenshots
-*Screenshots will be added after the application is running.*
+
+### ![Opening App](screenshots/OpeningApp.png)
+
+### Adding a Task
+![Adding a Task](screenshots/adding1.png)
+
+### Adding 2nd Task
+![Adding 2nd Task](screenshots/adding2.png)
+
+### Adding 3rd Task
+![Adding 3rd Task](screenshots/adding3.png)
+
+### Completed Task
+![Completed Tasks](screenshots/completedtask.png)
+
+### Delete Success
+![Deleted Tasks](screenshots/DeleteSuccess.png)
