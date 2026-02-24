@@ -42,7 +42,7 @@ public class TaskManagerController {
     private void onAddTask() {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    TaskManagerApplication.class.getResource("add-task-view.fxml"));
+                    TaskManagerApplication.class.getResource("/add-task-view.fxml"));
             Scene scene = new Scene(loader.load(), 400, 350);
             scene.getStylesheets().add(
                     TaskManagerApplication.class.getResource("styles.css").toExternalForm());
