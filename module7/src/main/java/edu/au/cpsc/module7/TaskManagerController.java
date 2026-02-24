@@ -45,7 +45,7 @@ public class TaskManagerController {
                     TaskManagerApplication.class.getResource("/add-task-view.fxml"));
             Scene scene = new Scene(loader.load(), 400, 350);
             scene.getStylesheets().add(
-                    TaskManagerApplication.class.getResource("styles.css").toExternalForm());
+                    TaskManagerApplication.class.getResource("/style.css").toExternalForm());
 
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Add New Task");
